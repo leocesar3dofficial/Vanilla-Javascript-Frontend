@@ -26,6 +26,7 @@ const handlePath = async () => {
 
 // window.onpopstate = handlePath;
 window.addEventListener("popstate", function (event) {
+  console.log(event.state);
   handlePath();
 });
 
