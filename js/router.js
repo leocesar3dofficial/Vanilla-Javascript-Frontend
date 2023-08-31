@@ -24,10 +24,6 @@ const handlePath = async () => {
   performAction(match);
 };
 
-// window.onpopstate = handlePath;
-window.addEventListener("popstate", function (event) {
-  console.log(event.state);
-  handlePath();
-});
-
+// fired when back or forward button on browser is pressed
+window.onpopstate = handlePath;
 handlePath();

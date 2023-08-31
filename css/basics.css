@@ -52,6 +52,7 @@ hr {
   text-align: center;
   height: 5px;
   width: 60%;
+  margin: 1rem 0;
 }
 
 hr:after {

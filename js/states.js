@@ -1,7 +1,5 @@
 function performAction(state) {
   switch (state) {
-    case routes["/"]:
-      break;
     case routes["/artigos"]:
       renderArticlesList();
       break;
