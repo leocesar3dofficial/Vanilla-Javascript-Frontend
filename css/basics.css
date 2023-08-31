@@ -1,0 +1,132 @@
+/* min body height */
+body {
+  min-height: 100vh;
+  text-align: center;
+  font-family: "Roboto", sans-serif, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* responsive images/videos */
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+button:hover {
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+p {
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif; /* Apply the new font */
+}
+
+/* Styling for the <hr> tag */
+hr {
+  border: none;
+  border-top: 1px solid var(--text-color);
+  color: var(--text-color);
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+  width: 60%;
+}
+
+hr:after {
+  background: var(--background-color);
+  content: "< >";
+  padding: 0 4px;
+  position: relative;
+  top: -10px;
+}
+
+/* Styling for the links */
+a {
+  color: var(--primary-color); /* Change link color */
+  text-decoration: none;
+  transition: color 0.3s; /* Add transition effect for smoother change */
+}
+
+a:hover {
+  color: var(--secondary-color); /* Change link color on hover */
+}
+
+/* Basic styling for lists */
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none; /* Remove default list bullets or numbers */
+}
+
+/* Basic styling for lists */
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none; /* Remove default list bullets or numbers */
+}
+
+/* Styling for list items */
+li {
+  display: flex;
+  align-items: center; /* Center vertically */
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/* Custom bullet for unordered lists */
+ul li::before {
+  content: "\2022"; /* Bullet character */
+  color: var(--text-color); /* Bullet color */
+  font-weight: bold;
+  margin-right: 10px; /* Space between bullet and text */
+}
+
+/* Custom number for ordered lists */
+ol li::before {
+  content: counter(item); /* Use counter for numbers */
+  color: var(--text-color); /* Number color */
+  font-weight: bold;
+  margin-right: 10px; /* Space between number and text */
+  counter-increment: item; /* Increment the counter */
+}
+
+/* Styling for nested lists */
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin-top: 5px;
+  padding-left: 20px;
+}
+
+/* Styling for nested list items */
+ul ul li,
+ol ol li,
+ul ol li,
+ol ul li {
+  margin-bottom: 5px;
+}
