@@ -29,6 +29,7 @@ async function getArticle(articlePath) {
   );
 
   if (typeof articleDescription === "undefined") {
+    handlePath();
     console.log("Article not found, do something!");
     return;
   }
