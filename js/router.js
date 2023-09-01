@@ -23,6 +23,13 @@ const handlePath = async () => {
   performAction(match);
 };
 
+async function render404Template() {
+  const html = await fetch(routes[404].template).then((data) => data.text());
+  document.title = routes[404].title;
+  pageDescription.setAttribute("content", routes[404].description);
+  content.innerHTML = html;
+}
+
 // fired when back or forward button on browser is pressed
 window.onpopstate = handlePath;
 handlePath();
