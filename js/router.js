@@ -3,7 +3,6 @@ const content = document.getElementById("content");
 const pageDescription = document.querySelector('meta[name="description"]');
 
 const route = (event) => {
-  // event = event || window.event;
   event.preventDefault();
   window.history.pushState({}, "", event.currentTarget.href);
   handlePath();
