@@ -2,7 +2,7 @@ let articlesList = [];
 
 const getArticlesList = async () => {
   try {
-    const response = await fetch("./articles.json");
+    const response = await fetch("../articles.json");
 
     if (!response.ok) {
       throw new Error(`Network response was not ok: ${response.status}`);
