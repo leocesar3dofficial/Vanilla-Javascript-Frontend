@@ -5,7 +5,7 @@ function setCard(article) {
 
   let htmlSnippet = `
 <div class="article-card">
-  <a href="artigo/${article.slug}" id="article-link">
+  <a href="artigo/${article.slug}" class="article-card-link">
     <img src="${article.image}" alt="foto do artigo"/>
   </a>
   <div class="card-content">

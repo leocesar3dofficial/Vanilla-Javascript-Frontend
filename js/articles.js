@@ -56,6 +56,11 @@ function renderArticlesList() {
   for (let i = 0; i < 5; i++) {
     const article = articlesList[i];
     articlesContainer.innerHTML += setCard(article);
-    document.getElementById("article-link").addEventListener("click", route);
+  }
+
+  const cardLinks = document.getElementsByClassName("article-card-link");
+
+  for (const link of cardLinks) {
+    link.addEventListener("click", route);
   }
 }
