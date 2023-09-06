@@ -58,7 +58,6 @@ function renderArticlesList(searchValue) {
 
   if (isNaN(searchValue)) {
     filteredArticles = articlesList;
-    console.log(filteredArticles);
   } else {
     filteredArticles = filterByCategory(searchValue);
   }
@@ -115,9 +114,14 @@ function addLink(element, href, textContent) {
 function filterByCategory(categoryIndex) {
   const category = articlesCategories[categoryIndex];
 
-  const filteredArticles = articlesList.filter(
-    (article) => article.category === category
-  );
+  if (category == "undefined") {
+    render404Template();
+    return [];
+  } else {
+    const filteredArticles = articlesList.filter(
+      (article) => article.category === category
+    );
 
-  return filteredArticles;
+    return filteredArticles;
+  }
 }
