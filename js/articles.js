@@ -1,3 +1,6 @@
+import { setCard } from "./articleCard.js";
+import { route } from "./router.js";
+
 let articlesList = [];
 let articlesCategories = [];
 
@@ -125,3 +128,11 @@ function filterByCategory(categoryIndex) {
     return filteredArticles;
   }
 }
+
+export {
+  getArticlesList,
+  getArticle,
+  renderArticlesList,
+  renderCategoiesList,
+  filterByCategory,
+};

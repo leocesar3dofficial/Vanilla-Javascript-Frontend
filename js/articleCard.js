@@ -1,4 +1,4 @@
-function setCard(article) {
+export function setCard(article) {
   const dateModified = new Date(article.dateModified);
   const options = { year: "numeric", month: "long", day: "numeric" };
   const formattedDate = dateModified.toLocaleDateString("pt-BR", options);

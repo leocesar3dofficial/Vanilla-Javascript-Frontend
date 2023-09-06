@@ -1,3 +1,6 @@
+import { routes } from "./routes.js";
+import { performAction } from "./states.js";
+
 const navigation = document.getElementById("navigation");
 const content = document.getElementById("content");
 const pageDescription = document.querySelector('meta[name="description"]');
@@ -33,3 +36,5 @@ async function render404Template() {
 // fired when back or forward button on browser is pressed
 window.onpopstate = handlePath;
 handlePath();
+
+export { route, handlePath, render404Template };

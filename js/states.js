@@ -1,3 +1,10 @@
+import { routes } from "./routes.js";
+import {
+  renderCategoiesList,
+  renderArticlesList,
+  getArticle,
+} from "./articles.js";
+
 function performAction(state) {
   switch (state) {
     case routes["/artigos"]:
@@ -16,3 +23,5 @@ function performAction(state) {
       break;
   }
 }
+
+export { performAction };

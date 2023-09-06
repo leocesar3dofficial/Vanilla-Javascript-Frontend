@@ -32,3 +32,5 @@ const routes = {
     description: "Artigo",
   },
 };
+
+export { routes };
