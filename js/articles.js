@@ -1,4 +1,5 @@
 let articlesList = [];
+let articlesCategories = [];
 
 const getArticlesList = async () => {
   try {
@@ -18,6 +19,7 @@ const getArticlesList = async () => {
 (async () => {
   try {
     articlesList = await getArticlesList();
+    articlesCategories = extractUniqueCategories(articlesList);
   } catch (error) {
     console.error("Error:", error);
   }
@@ -30,7 +32,6 @@ async function getArticle(articlePath) {
 
   if (typeof articleDescription === "undefined") {
     render404Template();
-    console.log("Article not found, do something!");
     return;
   }
 
@@ -51,11 +52,19 @@ async function getArticle(articlePath) {
   }
 }
 
-function renderArticlesList() {
+function renderArticlesList(searchValue) {
   const articlesContainer = document.getElementById("articles-container");
+  let filteredArticles = [];
 
-  for (let i = 0; i < 5; i++) {
-    const article = articlesList[i];
+  if (isNaN(searchValue)) {
+    filteredArticles = articlesList;
+    console.log(filteredArticles);
+  } else {
+    filteredArticles = filterByCategory(searchValue);
+  }
+
+  for (let i = 0; i < filteredArticles.length; i++) {
+    const article = filteredArticles[i];
     articlesContainer.innerHTML += setCard(article);
   }
 
@@ -64,4 +73,51 @@ function renderArticlesList() {
   for (const link of cardLinks) {
     link.addEventListener("click", route);
   }
+}
+
+function extractUniqueCategories(jsonData) {
+  const categories = [];
+
+  jsonData.forEach((item) => {
+    const category = item.category;
+    if (!categories.includes(category)) {
+      categories.push(category);
+    }
+  });
+
+  return categories;
+}
+
+function renderCategoiesList() {
+  const categoryFilterContainer = document.getElementById(
+    "articles-categories"
+  );
+
+  addLink(categoryFilterContainer, "/artigos", "Todos os artigos");
+
+  articlesCategories.forEach((category) => {
+    addLink(
+      categoryFilterContainer,
+      `/artigos/?categoria=${articlesCategories.indexOf(category)}`,
+      category
+    );
+  });
+}
+
+function addLink(element, href, textContent) {
+  const newLink = document.createElement("a");
+  newLink.href = href;
+  newLink.textContent = textContent;
+  newLink.addEventListener("click", route);
+  element.appendChild(newLink);
+}
+
+function filterByCategory(categoryIndex) {
+  const category = articlesCategories[categoryIndex];
+
+  const filteredArticles = articlesList.filter(
+    (article) => article.category === category
+  );
+
+  return filteredArticles;
 }

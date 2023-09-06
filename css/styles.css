@@ -125,6 +125,21 @@ ARTICLES
   font-size: 0.8rem;
 }
 
+#articles-categories {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+}
+
+#articles-categories a {
+  background-color: var(--secondary-color);
+  padding: 0.5rem 1rem;
+  color: var(--background-color);
+  border-radius: 0.5rem;
+  margin: 0.5rem 1rem;
+}
+
 /*
 --------------------------------------------------------------
 RESPONSIVE
