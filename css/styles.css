@@ -128,8 +128,7 @@ ARTICLES
 #articles-categories {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  text-align: center;
+  justify-content: center;
 }
 
 #articles-categories a {
