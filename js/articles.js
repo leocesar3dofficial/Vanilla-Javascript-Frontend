@@ -114,7 +114,7 @@ function addLink(element, href, textContent) {
 function filterByCategory(categoryIndex) {
   const category = articlesCategories[categoryIndex];
 
-  if (category == "undefined") {
+  if (category === "undefined") {
     render404Template();
     return [];
   } else {
