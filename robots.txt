@@ -1,0 +1,35 @@
+User-agent: *
+Disallow: /private/
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /images/private/
+Disallow: /scripts/private/
+Disallow: /styles/private/
+Disallow: /downloads/private/
+Disallow: /temp/
+Disallow: /search-results/
+Disallow: /account/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /login/
+Disallow: /register/
+Disallow: /unsubscribe/
+Disallow: /contact-us/
+Disallow: /terms-of-service/
+Disallow: /privacy-policy/
+Disallow: /404-error-page/
+Disallow: /error/
+Disallow: /maintenance/
+Disallow: /wp-admin/   # If you're using WordPress
+Disallow: /wp-includes/  # If you're using WordPress
+
+Allow: /images/
+Allow: /scripts/
+Allow: /styles/
+Allow: /downloads/
+Allow: /temp/
+Allow: /search-results/
+
+Sitemap: https://www.example.com/sitemap.xml  # Replace with your sitemap URL
