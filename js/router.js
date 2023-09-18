@@ -1,7 +1,7 @@
 import { routes } from "./routes.js";
 import { performAction } from "./states.js";
 
-const navigation = document.getElementById("navigation");
+const menu = document.getElementById("menu");
 const content = document.getElementById("content");
 const pageDescription = document.querySelector('meta[name="description"]');
 
@@ -11,8 +11,8 @@ const route = (event) => {
   handlePath();
 };
 
-for (const link of navigation.children) {
-  link.addEventListener("click", route);
+for (const item of menu.children) {
+  item.querySelector("a").addEventListener("click", route);
 }
 
 const handlePath = async () => {
