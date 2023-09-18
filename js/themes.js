@@ -12,7 +12,7 @@ if (prefersDarkMode) {
 }
 
 function enableThemes() {
-  themeToggle.addEventListener("click", () => {
+  themeToggle.addEventListener("change", () => {
     if (body.getAttribute("data-theme") === "light") {
       body.setAttribute("data-theme", "dark");
     } else if (body.getAttribute("data-theme") === "dark") {
