@@ -4,6 +4,29 @@
 
 /*
 --------------------------------------------------------------
+WARNING
+--------------------------------------------------------------
+*/
+
+#module-support-warning {
+  display: none;
+}
+
+.warning {
+  background-color: var(--accent-color);
+  padding: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: var(--text-color-light);
+}
+
+.warning > a {
+  filter: invert(100%);
+  filter: brightness(50%);
+}
+
+/*
+--------------------------------------------------------------
 HEADER
 --------------------------------------------------------------
 */
