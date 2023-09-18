@@ -1,5 +1,5 @@
 import { setCard } from "./articleCard.js";
-import { route } from "./router.js";
+import { route, render404Template } from "./router.js";
 
 let articlesList = [];
 let articlesCategories = [];
