@@ -30,11 +30,12 @@ HAMBURGER MENU
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  background: var(--text-color);
+  background-color: var(--background-color);
   border-radius: 3px;
   z-index: 1;
   transform-origin: 4px 0px;
-  transition: transform 0.5s ease, background 0.5s ease, opacity 0.55s ease;
+  transition: transform 0.5s ease, background-color 0.5s ease,
+    opacity 0.55s ease;
 }
 
 #menu-toggle span:first-child {
@@ -52,7 +53,6 @@ HAMBURGER MENU
 #menu-toggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: var(--background-color);
 }
 
 #menu-toggle input:checked ~ span:nth-last-child(3) {
@@ -75,6 +75,8 @@ HAMBURGER MENU
   transform: translate(-100%, 0);
   opacity: 0;
   transition: transform 0.5s ease, opacity 0.55s ease;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 #menu-toggle input:checked ~ ul {
@@ -109,8 +111,8 @@ THEME CHECKBOX
   position: relative;
   height: 26px;
   width: 50px;
-  margin-right: 1rem;
-  transform: scale(1.33);
+  margin-right: 0.5rem;
+  transform: scale(1.25);
 }
 
 .theme-label .ball {
@@ -174,10 +176,13 @@ header {
   padding: 10px;
 }
 
+#logo {
+  height: 45px;
+}
+
 h1 {
   font-weight: 700;
   font-size: 2rem;
-  margin-bottom: 10px;
 }
 
 nav {
@@ -216,10 +221,40 @@ ARTICLES
 --------------------------------------------------------------
 */
 
+#article-container {
+  text-align: left;
+  margin: 1rem;
+  max-width: 1024px;
+}
+
+#article-container h1 {
+  border-radius: 0.5rem;
+  color: var(--primary-color);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  text-align: center;
+  margin: auto;
+}
+
+#article-container img {
+  border-radius: 0.5rem;
+  height: 256px;
+  width: 100%;
+  object-fit: cover;
+}
+
+#article-container p {
+  margin-top: 0.5rem;
+}
+
+.date-modified {
+  font-weight: bold;
+}
+
 #articles-container {
   display: flex;
   flex-wrap: wrap;
-  background-color: var(--primary-color);
   gap: 0.5rem;
   padding: 1rem;
   justify-content: center; /* Horizontal alignment (main axis) */
@@ -232,13 +267,18 @@ ARTICLES
   height: 330px;
   border-radius: 0.5rem;
   overflow: hidden;
-  background-color: var(--background-color);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .article-card img {
   object-fit: cover;
   height: 33%;
   width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.article-card img:hover {
+  transform: scale(1.05);
 }
 
 .article-card .card-content {
@@ -249,8 +289,8 @@ ARTICLES
   text-align: left;
 }
 
+#article-container h2,
 .article-card h2 {
-  /* margin-bottom: 1rem; */
   font-size: 1.5rem;
   font-weight: 700;
   display: -webkit-box;
@@ -260,17 +300,19 @@ ARTICLES
   text-overflow: ellipsis;
 }
 
+#article-container h3,
 .article-card h3 {
-  background-color: var(--secondary-color);
+  background-color: var(--accent-color);
   color: var(--background-color);
   border-radius: 0.25rem;
   width: fit-content;
   padding: 0.25rem 0.5rem;
   font-weight: bold;
+  margin-top: 0.5rem;
 }
 
 .article-card p {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   display: -webkit-box;
   -webkit-line-clamp: 4; /* Number of lines to show */
   -webkit-box-orient: vertical;
@@ -285,7 +327,7 @@ ARTICLES
 #articles-categories {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  margin: 0.5rem;
 }
 
 #articles-categories a {
@@ -293,7 +335,13 @@ ARTICLES
   padding: 0.5rem 1rem;
   color: var(--background-color);
   border-radius: 0.5rem;
-  margin: 0.5rem 1rem;
+  margin: 0.5rem;
+  font-weight: bold;
+  transition: background-color 0.5s ease;
+}
+
+#articles-categories a:hover {
+  background-color: var(--primary-color);
 }
 
 /*
@@ -302,6 +350,8 @@ RESPONSIVE
 --------------------------------------------------------------
 */
 
-/* @media screen and (min-width: 768px) {
- // TODO
-} */
+@media screen and (max-width: 768px) {
+  #article-container {
+    width: 90%;
+  }
+}

@@ -5,17 +5,17 @@ COLORS
 */
 
 :root {
-  --primary-color-light: #007bff;
-  --secondary-color-light: #6c757d;
-  --text-color-light: #333;
-  --background-color-light: #fff;
+  --primary-color-light: #2541b2;
+  --secondary-color-light: #4a6fa5;
+  --text-color-light: #04151f;
+  --background-color-light: #ffffff;
 
-  --primary-color-dark: #3498db;
-  --secondary-color-dark: #bdc3c7;
-  --text-color-dark: #eee;
-  --background-color-dark: #333;
+  --primary-color-dark: #4a6fa5;
+  --secondary-color-dark: #2541b2;
+  --text-color-dark: #ffffff;
+  --background-color-dark: #10192d;
 
-  --accent-color: #ffcc00;
+  --accent-color: #c44900;
 }
 
 html {
@@ -79,6 +79,13 @@ body {
   color: var(--text-color);
 }
 
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 0.5rem;
+}
+
 /* responsive images/videos */
 img,
 picture,
@@ -134,21 +141,13 @@ hr:after {
 
 /* Styling for the links */
 a {
-  color: var(--primary-color); /* Change link color */
+  color: var(--accent-color);
   text-decoration: none;
   transition: color 0.3s; /* Add transition effect for smoother change */
 }
 
 a:hover {
-  color: var(--secondary-color); /* Change link color on hover */
-}
-
-/* Basic styling for lists */
-ul,
-ol {
-  padding: 0;
-  margin: 0;
-  list-style: none; /* Remove default list bullets or numbers */
+  color: var(--primary-color); /* Change link color on hover */
 }
 
 /* Basic styling for lists */
@@ -159,29 +158,13 @@ ol {
   display: flex;
   flex-direction: column;
   list-style: none; /* Remove default list bullets or numbers */
+  justify-content: space-between;
 }
 
 /* Styling for list items */
 li {
-  margin-bottom: 10px;
+  margin-top: 0.5rem;
   position: relative;
-}
-
-/* Custom bullet for unordered lists */
-ul li::before {
-  content: "\2022"; /* Bullet character */
-  color: var(--text-color); /* Bullet color */
-  font-weight: bold;
-  margin-right: 10px; /* Space between bullet and text */
-}
-
-/* Custom number for ordered lists */
-ol li::before {
-  content: counter(item); /* Use counter for numbers */
-  color: var(--text-color); /* Number color */
-  font-weight: bold;
-  margin-right: 10px; /* Space between number and text */
-  counter-increment: item; /* Increment the counter */
 }
 
 /* Styling for nested lists */

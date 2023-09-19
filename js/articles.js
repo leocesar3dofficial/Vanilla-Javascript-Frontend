@@ -95,12 +95,12 @@ function renderCategoiesList() {
     "articles-categories"
   );
 
-  addLink(categoryFilterContainer, "/artigos", "Todos os artigos");
+  addLink(categoryFilterContainer, "/artigos", "Todos");
 
   articlesCategories.forEach((category) => {
     addLink(
       categoryFilterContainer,
-      `/artigos/?categoria=${articlesCategories.indexOf(category)}`,
+      `/artigos?categoria=${articlesCategories.indexOf(category)}`,
       category
     );
   });
