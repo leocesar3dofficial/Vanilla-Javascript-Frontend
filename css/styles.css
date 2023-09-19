@@ -303,7 +303,7 @@ ARTICLES
 #article-container h3,
 .article-card h3 {
   background-color: var(--accent-color);
-  color: var(--background-color);
+  color: var(--text-color-dark);
   border-radius: 0.25rem;
   width: fit-content;
   padding: 0.25rem 0.5rem;
@@ -333,7 +333,7 @@ ARTICLES
 #articles-categories a {
   background-color: var(--secondary-color);
   padding: 0.5rem 1rem;
-  color: var(--background-color);
+  color: var(--text-color-dark);
   border-radius: 0.5rem;
   margin: 0.5rem;
   font-weight: bold;
