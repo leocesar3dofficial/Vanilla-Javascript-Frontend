@@ -18,40 +18,42 @@
 
   <body>
     <header>
-      <nav id="navigation">
-        <div id="menu-toggle">
-          <input
-            type="checkbox"
-            id="hamburger-menu-checkbox"
-            aria-label="menu checkbox"
-          />
-          <span></span>
-          <span></span>
-          <span></span>
-          <ul id="menu">
-            <li>
-              <a href="/">Página Inicial</a>
-            </li>
-            <li>
-              <a href="/artigos">Artigos</a>
-            </li>
-            <li>
-              <a href="/sobre">Sobre</a>
-            </li>
-            <li>
-              <a href="/contato">Contato</a>
-            </li>
-          </ul>
+      <div id="header-content">
+        <nav id="navigation">
+          <div id="menu-toggle">
+            <input
+              type="checkbox"
+              id="hamburger-menu-checkbox"
+              aria-label="menu checkbox"
+            />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+              <li>
+                <a href="/">Página Inicial</a>
+              </li>
+              <li>
+                <a href="/artigos">Artigos</a>
+              </li>
+              <li>
+                <a href="/sobre">Sobre</a>
+              </li>
+              <li>
+                <a href="/contato">Contato</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <img src="img/logo.svg" id="logo" alt="logo" />
+        <div>
+          <input type="checkbox" id="theme-toggle" />
+          <label class="theme-label" for="theme-toggle">
+            <img src="icons/moon.svg" alt="dark mode" />
+            <img src="icons/sun.svg" alt="light mode" />
+            <div class="ball"></div>
+          </label>
         </div>
-      </nav>
-      <img src="img/logo.svg" id="logo" alt="logo" />
-      <div>
-        <input type="checkbox" id="theme-toggle" />
-        <label class="theme-label" for="theme-toggle">
-          <img src="icons/moon.svg" alt="dark mode" />
-          <img src="icons/sun.svg" alt="light mode" />
-          <div class="ball"></div>
-        </label>
       </div>
     </header>
     <main>
