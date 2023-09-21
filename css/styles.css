@@ -188,7 +188,7 @@ header {
 }
 
 h1 {
-  font-weight: 700;
+  font-weight: 900;
   font-size: 2rem;
 }
 
@@ -230,15 +230,12 @@ ARTICLES
 
 #article-container {
   text-align: left;
-  margin: 1rem;
+  /* margin: 1rem; */
   max-width: 1024px;
 }
 
 #article-container h1 {
-  border-radius: 0.5rem;
   color: var(--primary-color);
-  box-shadow: var(--secondary-color) 0px 4px 8px -2px,
-    var(--primary-color) 0px 0px 0px 1px;
   padding: 0.5rem 1rem;
   width: fit-content;
   text-align: center;
@@ -248,7 +245,6 @@ ARTICLES
 #article-container img {
   border-radius: 0.5rem;
   height: 256px;
-  width: 100%;
   object-fit: cover;
 }
 
@@ -271,8 +267,8 @@ ARTICLES
 }
 
 .article-card {
-  width: 320px;
-  height: 330px;
+  width: 330px;
+  height: 370px;
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: var(--secondary-color) 0px 4px 8px -2px,
