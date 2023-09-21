@@ -152,14 +152,12 @@ a:hover {
 }
 
 /* Basic styling for lists */
-ul,
+ul {
+  list-style: square inside;
+}
+
 ol {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  list-style: inside square;
-  justify-content: space-between;
+  list-style: decimal inside;
 }
 
 /* Styling for list items */

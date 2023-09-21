@@ -230,8 +230,7 @@ ARTICLES
 
 #article-container {
   text-align: left;
-  /* margin: 1rem; */
-  max-width: 1024px;
+  max-width: 768px;
 }
 
 #article-container h1 {
