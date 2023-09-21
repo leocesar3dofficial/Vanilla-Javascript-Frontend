@@ -10,15 +10,16 @@ HAMBURGER MENU
   display: block;
   position: relative;
   z-index: 1;
+  transform: translateY(-2px);
 }
 
 #menu-toggle input {
   display: block;
-  width: 40px;
+  width: 38px;
   height: 32px;
   position: absolute;
-  top: -7px;
-  left: -5px;
+  top: -2px;
+  left: -2px;
   cursor: pointer;
   opacity: 0;
   z-index: 2;
@@ -72,12 +73,15 @@ HAMBURGER MENU
   padding-top: 125px;
   background: var(--primary-color);
   transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
   opacity: 0;
-  transition: transform 0.5s ease, opacity 0.55s ease;
   border-radius: 0.5rem;
+  transition: transform 0.5s ease, opacity 0.55s ease;
   box-shadow: var(--secondary-color) 0px 4px 8px -2px,
     var(--primary-color) 0px 0px 0px 1px;
+}
+
+#menu li {
+  margin-top: 1rem;
 }
 
 #menu-toggle input:checked ~ ul {
@@ -86,7 +90,7 @@ HAMBURGER MENU
 }
 
 #menu-toggle input:not(:checked) ~ ul {
-  transform: translate(-100%, 0);
+  transform: translate(-200%, 0);
   opacity: 0; /* Added opacity rule to make the menu invisible when not checked */
 }
 
@@ -130,8 +134,7 @@ THEME CHECKBOX
 
 .theme-label img {
   width: 22px;
-  filter: invert(53%) sepia(0%) saturate(1513%) hue-rotate(211deg)
-    brightness(95%) contrast(88%);
+  filter: invert(50%) grayscale(100%);
 }
 
 #theme-toggle:checked + .theme-label .ball {
@@ -163,7 +166,7 @@ WARNING
 
 /*
 --------------------------------------------------------------
-HEADER
+HEADER AND MAIN
 --------------------------------------------------------------
 */
 
@@ -172,19 +175,26 @@ header {
   color: var(--text-color);
   display: flex; /* Add flex display to center its children */
   justify-content: center;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 }
 
 #header-content {
   display: flex;
   width: 1024px;
-  justify-content: space-between;
   align-items: center;
   padding: 10px;
   max-width: 100%;
+  gap: 1rem;
+}
+
+#header-content div:last-of-type {
+  margin-left: auto;
 }
 
 #logo {
-  height: 45px;
+  height: 40px;
 }
 
 h1 {
@@ -220,6 +230,10 @@ nav a:hover {
   flex-direction: column;
   align-items: center;
   align-content: center;
+}
+
+main {
+  padding-top: 64px;
 }
 
 /*

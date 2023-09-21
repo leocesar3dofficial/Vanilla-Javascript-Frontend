@@ -153,17 +153,17 @@ a:hover {
 
 /* Basic styling for lists */
 ul {
-  list-style: square inside;
+  list-style: disc;
 }
 
 ol {
-  list-style: decimal inside;
+  list-style: decimal;
 }
 
 /* Styling for list items */
 li {
   margin-top: 0.5rem;
-  position: relative;
+  margin-left: 1em;
 }
 
 /* Styling for nested lists */
