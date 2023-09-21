@@ -43,10 +43,7 @@ RESETS
 */
 
 /* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap");
-
-/* Import Google Fonts for the paragraph font */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Teko:wght@400;700&display=swap");
 
 /* makes sizing simpler */
 *,
@@ -73,7 +70,7 @@ BASICS
 body {
   height: 100%;
   text-align: left;
-  font-family: "Roboto", sans-serif, Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -83,6 +80,7 @@ h1,
 h2,
 h3,
 h4 {
+  font-family: "Teko", sans-serif;
   margin-top: 0.5rem;
 }
 
@@ -93,6 +91,10 @@ svg,
 video {
   display: block;
   max-width: 100%;
+}
+
+strong {
+  font-weight: bold;
 }
 
 button {
@@ -157,7 +159,7 @@ ol {
   margin: 0;
   display: flex;
   flex-direction: column;
-  list-style: none; /* Remove default list bullets or numbers */
+  list-style: inside square;
   justify-content: space-between;
 }
 

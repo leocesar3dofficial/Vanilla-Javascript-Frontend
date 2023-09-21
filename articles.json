@@ -1,47 +1,11 @@
 [
   {
-    "filename": "artigo0005.html",
-    "title": "Título do Artigo 5",
-    "category": "Mercado",
-    "description": "Suspendisse non libero a velit blandit eleifend.Praesent vitae dolor in ligula rhoncus sagittis id id libero.Modificado em: terça-feira, 29 ",
-    "slug": "titulo-do-artigo-5",
-    "image": "https://www.petz.com.br/blog/wp-content/uploads/2020/08/cat-cafe-pet.jpg",
-    "dateModified": "2023-08-29T23:54:02.891Z"
-  },
-  {
-    "filename": "artigo0004.html",
-    "title": "Título do Artigo 4",
-    "category": "Educação financeira",
-    "description": "Aliquam erat volutpat. Proin auctor justo nec leo facilisis.Maecenas id libero nec quam laoreet feugiat eget nec sapien.Modificado em: terça",
-    "slug": "titulo-do-artigo-4",
-    "image": "https://hips.hearstapps.com/hmg-prod/images/russian-blue-royalty-free-image-1658451809.jpg",
-    "dateModified": "2023-08-29T23:54:02.887Z"
-  },
-  {
-    "filename": "artigo0003.html",
-    "title": "Título do Artigo 3",
-    "category": "Saúde",
-    "description": "Cras ut tortor ut mi varius sagittis in vel tortor.Donec vitae justo fringilla, rhoncus erat vel, lacinia justo.Modificado em: terça-feira, ",
-    "slug": "titulo-do-artigo-3",
-    "image": "https://animals.sandiegozoo.org/sites/default/files/2020-08/black-footed.jpg",
-    "dateModified": "2023-08-29T23:54:02.883Z"
-  },
-  {
-    "filename": "artigo0002.html",
-    "title": "Título do Artigo 2",
-    "category": "Educação financeira",
-    "description": "Vestibulum nec congue odio, auctor luctus nisi.Fusce fermentum justo a ligula vehicula, at consequat nisi condimentum.Modificado em: terça-f",
-    "slug": "titulo-do-artigo-2",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
-    "dateModified": "2023-08-29T23:54:02.879Z"
-  },
-  {
-    "filename": "artigo0001.html",
-    "title": "Título do Artigo 1",
-    "category": "Saúde",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Pellentesque vel augue eget urna tristique dignissim.Modificado em: terça-feira, 29 ",
-    "slug": "titulo-do-artigo-1",
-    "image": "https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/16:9/w_2560%2Cc_limit/1521-WIRED-Cat.jpeg",
-    "dateModified": "2023-08-29T23:54:02.875Z"
+    "filename": "impacto-web-design-eficaz.html",
+    "title": "O impacto comercial de um web design eficaz",
+    "category": "Web Design",
+    "description": "Web design eficaz é um investimento crítico para empresas de todos os tamanhos. No mundo digital de hoje, o seu website é muitas vezes o pri",
+    "slug": "o-impacto-comercial-de-um-web-design-eficaz",
+    "image": "img/web-design.jpg",
+    "dateModified": "2023-09-21T05:59:58.048Z"
   }
 ]
