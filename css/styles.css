@@ -132,11 +132,6 @@ THEME CHECKBOX
   transition: transform 0.15s ease-in-out;
 }
 
-.theme-label img {
-  width: 22px;
-  filter: invert(50%) grayscale(100%);
-}
-
 #theme-toggle:checked + .theme-label .ball {
   transform: translateX(24px);
 }
