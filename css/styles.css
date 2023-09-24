@@ -67,14 +67,14 @@ HAMBURGER MENU
 
 #menu {
   position: absolute;
+  top: 41px;
+  left: -64px;
   width: 400px;
-  margin: -100px 0 0 -50px;
-  padding: 50px;
-  padding-top: 125px;
+  padding: 1rem 2rem;
   background: var(--primary-color);
   transform-origin: 0% 0%;
   opacity: 0;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   transition: transform 0.5s ease, opacity 0.55s ease;
   box-shadow: var(--secondary-color) 0px 4px 8px -2px,
     var(--primary-color) 0px 0px 0px 1px;
@@ -240,6 +240,7 @@ ARTICLES
 #article-container {
   text-align: left;
   max-width: 768px;
+  line-height: 2rem;
 }
 
 #article-container h1 {
