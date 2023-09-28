@@ -49,5 +49,6 @@ menuLinks.forEach((link) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   enableThemes();
+  // checks the URL when the page is loaded the first time and load the requested content
   handlePath();
 });

@@ -41,13 +41,14 @@ function performAction(path, callback) {
   }
 }
 
+// executed when a link with a click event listener points here
 const route = (event) => {
   event.preventDefault();
   window.history.pushState({}, '', event.currentTarget.href);
   handlePath();
 };
 
-export default async function handlePath() {
+async function handlePath() {
   const path = window.location.pathname;
   const pathnameFirstPart = path.split('/')[1];
   const match = routes[`/${pathnameFirstPart}`] || routes[404];
@@ -64,3 +65,5 @@ Array.from(menu.children).forEach((element) => {
 
 // fired when back or forward button on browser is pressed
 window.onpopstate = handlePath;
+
+export default handlePath;
