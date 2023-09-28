@@ -3,6 +3,15 @@ import setCard from './articleCard.js';
 let articlesList = [];
 let articlesCategories = [];
 
+function displayMessage(elementId, text) {
+  const systemMessage = document.getElementById(elementId);
+  systemMessage.style.display = 'block';
+  const paragraph = document.createElement('p');
+  const elementText = document.createTextNode(text);
+  paragraph.appendChild(elementText);
+  systemMessage.appendChild(paragraph);
+}
+
 const getArticlesList = async () => {
   try {
     const response = await fetch('../articles.json');
@@ -14,7 +23,7 @@ const getArticlesList = async () => {
     const result = await response.json();
     return result;
   } catch (error) {
-    console.error('Fetch error:', error);
+    displayMessage('system-message', `Fetch error: ${error}`);
   }
 
   return [];
@@ -38,7 +47,7 @@ function extractUniqueCategories(jsonData) {
     articlesList = await getArticlesList();
     articlesCategories = extractUniqueCategories(articlesList);
   } catch (error) {
-    console.error('Error:', error);
+    displayMessage('system-message', `Error: ${error}`);
   }
 })();
 
@@ -64,7 +73,7 @@ async function getArticle(articlePath) {
     const articleContainer = document.getElementById('article-container');
     articleContainer.innerHTML = htmlContent;
   } catch (error) {
-    console.error('Fetch error:', error);
+    displayMessage('system-message', `Fetch error: ${error}`);
   }
 
   return null;

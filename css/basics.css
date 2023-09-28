@@ -26,7 +26,11 @@ COLORS
   --text-color-dark: #ffffff;
   --background-color-dark: #10192d;
 
-  --accent-color: #c44900;
+  --accent-color-light: #c44900;
+  --accent-color-dark: #8a9201;
+
+  --error-color: #6b0303;
+  --warning-color: rgb(145, 94, 0);
 }
 
 html {
@@ -36,6 +40,7 @@ html {
 body[data-theme="light"] {
   --primary-color: var(--primary-color-light);
   --secondary-color: var(--secondary-color-light);
+  --accent-color: var(--accent-color-light);
   --text-color: var(--text-color-light);
   --background-color: var(--background-color-light);
   --icon-fill: var(--primary-color-light);
@@ -44,6 +49,7 @@ body[data-theme="light"] {
 body[data-theme="dark"] {
   --primary-color: var(--primary-color-dark);
   --secondary-color: var(--secondary-color-dark);
+  --accent-color: var(--accent-color-dark);
   --text-color: var(--text-color-dark);
   --background-color: var(--background-color-dark);
   --icon-fill: var(--primary-color-dark);
@@ -92,6 +98,11 @@ h3,
 h4 {
   font-family: "Roboto", sans-serif;
   margin-top: 0.5rem;
+}
+
+/* Set line-height for all multiline textual elements */
+p, div, li {
+  line-height: 1.5;
 }
 
 /* responsive images/videos */

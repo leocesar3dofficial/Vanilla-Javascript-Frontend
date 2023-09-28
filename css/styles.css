@@ -138,20 +138,27 @@ THEME CHECKBOX
 
 /*
 --------------------------------------------------------------
-WARNING
+SYSTEM MESSAGES
 --------------------------------------------------------------
 */
 
-#module-support-warning {
+#module-support-warning, #system-message {
   display: none;
 }
 
-.warning {
-  background-color: var(--accent-color);
+.message {
   padding: 10px;
   margin-bottom: 10px;
   font-weight: bold;
-  color: var(--text-color-light);
+  color: var(--text-color-dark);
+}
+
+.warning {
+  background-color: var(--warning-color);
+}
+
+.error {
+  background-color: var(--error-color);
 }
 
 .warning > a {
@@ -240,7 +247,6 @@ ARTICLES
 #article-container {
   text-align: left;
   max-width: 768px;
-  line-height: 2rem;
 }
 
 #article-container h1 {
