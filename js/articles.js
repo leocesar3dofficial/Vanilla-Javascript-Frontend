@@ -85,6 +85,7 @@ function filterByCategory(categoryIndex) {
   if (typeof category === 'undefined') {
     return null;
   }
+
   const filteredArticles = articlesList.filter(
     (article) => article.category === category,
   );
