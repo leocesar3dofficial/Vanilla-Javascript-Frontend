@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import routes from './routes.js';
 import {
   renderCategoriesList,
@@ -41,14 +40,7 @@ function performAction(path, callback) {
   }
 }
 
-// executed when a link with a click event listener points here
-const route = (event) => {
-  event.preventDefault();
-  window.history.pushState({}, '', event.currentTarget.href);
-  handlePath();
-};
-
-async function handlePath() {
+async function handlePath(callback) {
   const path = window.location.pathname;
   const pathnameFirstPart = path.split('/')[1];
   const match = routes[`/${pathnameFirstPart}`] || routes[404];
@@ -56,14 +48,25 @@ async function handlePath() {
   document.title = match.title;
   pageDescription.setAttribute('content', match.description);
   content.innerHTML = html;
-  performAction(match, route);
+  performAction(match, callback);
 }
+
+// executed when a link with a click event listener points here
+const route = (event) => {
+  event.preventDefault();
+  window.history.pushState({}, '', event.currentTarget.href);
+  handlePath(route);
+};
 
 Array.from(menu.children).forEach((element) => {
   element.querySelector('a').addEventListener('click', route);
 });
 
+function initRouter() {
+  handlePath(route);
+}
+
 // fired when back or forward button on browser is pressed
 window.onpopstate = handlePath;
 
-export default handlePath;
+export default initRouter;

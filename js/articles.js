@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import setCard from './articleCard.js';
 
 let articlesList = [];
