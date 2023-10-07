@@ -75,8 +75,6 @@ async function getArticle(articlePath) {
   } catch (error) {
     displayMessage('system-message', `Fetch error: ${error}`);
   }
-
-  return null;
 }
 
 function filterByCategory(categoryIndex) {
