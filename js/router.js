@@ -29,11 +29,12 @@ function performAction(path, callback) {
     }
     case routes['/artigo']: {
       const articleTitle = window.location.pathname.split('/')[2];
-      const article = getArticle(articleTitle);
 
-      if (article === null) {
-        render404Template();
-      }
+      getArticle(articleTitle).then((article) => {
+        if (article === null) {
+          render404Template();
+        }
+      });
 
       break;
     }

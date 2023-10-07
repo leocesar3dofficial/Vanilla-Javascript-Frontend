@@ -1,11 +1,6 @@
 const urlPageTitle = 'Nome do website';
 
 const routes = {
-  404: {
-    template: '/templates/404.html',
-    title: `404 | ${urlPageTitle}`,
-    description: 'Página não encontrada',
-  },
   '/': {
     template: '/templates/index.html',
     title: `Home | ${urlPageTitle}`,
@@ -30,6 +25,11 @@ const routes = {
     template: '/templates/article.html',
     title: `Artigo | ${urlPageTitle}`,
     description: 'Artigo',
+  },
+  404: {
+    template: '/templates/404.html',
+    title: `404 | ${urlPageTitle}`,
+    description: 'Página não encontrada',
   },
 };
 
