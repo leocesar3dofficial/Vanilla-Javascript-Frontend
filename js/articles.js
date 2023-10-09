@@ -52,15 +52,15 @@ function extractUniqueCategories(jsonData) {
 })();
 
 async function getArticle(articlePath) {
-  const articleDescription = articlesList.find(
+  const articleObject = articlesList.find(
     (article) => article.slug === articlePath,
   );
 
-  if (typeof articleDescription === 'undefined') {
+  if (typeof articleObject === 'undefined') {
     return null;
   }
 
-  const articleURL = `../articles/${articleDescription.filename}`;
+  const articleURL = `../articles/${articleObject.filename}`;
 
   try {
     const response = await fetch(articleURL);
@@ -76,7 +76,7 @@ async function getArticle(articlePath) {
     displayMessage('system-message', `Fetch error: ${error}`);
   }
 
-  return null;
+  return articleObject;
 }
 
 function filterByCategory(categoryIndex) {
