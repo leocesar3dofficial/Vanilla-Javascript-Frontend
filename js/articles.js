@@ -75,6 +75,8 @@ async function getArticle(articlePath) {
   } catch (error) {
     displayMessage('system-message', `Fetch error: ${error}`);
   }
+
+  return null;
 }
 
 function filterByCategory(categoryIndex) {
@@ -91,18 +93,9 @@ function filterByCategory(categoryIndex) {
   return filteredArticles;
 }
 
-function renderArticlesList(searchValue, callback) {
+function renderCards(filteredArticles, callback) {
   const articlesContainer = document.getElementById('articles-container');
-  let filteredArticles = [];
-
-  if (Number.isNaN(searchValue)) {
-    filteredArticles = articlesList;
-  } else {
-    filteredArticles = filterByCategory(searchValue);
-    if (filteredArticles === null) {
-      filteredArticles = articlesList;
-    }
-  }
+  articlesContainer.innerHTML = '';
 
   for (let i = 0; i < filteredArticles.length; i += 1) {
     const article = filteredArticles[i];
@@ -114,6 +107,22 @@ function renderArticlesList(searchValue, callback) {
   Array.from(cardLinks).forEach((link) => {
     link.addEventListener('click', callback);
   });
+}
+
+function renderArticlesList(searchValue, callback) {
+  let filteredArticles = [];
+
+  if (Number.isNaN(searchValue)) {
+    filteredArticles = articlesList;
+  } else {
+    filteredArticles = filterByCategory(searchValue);
+
+    if (filteredArticles === null) {
+      filteredArticles = articlesList;
+    }
+  }
+
+  renderCards(filteredArticles, callback);
 }
 
 function addLink(element, href, textContent, callback) {
@@ -141,10 +150,32 @@ function renderCategoriesList(callback) {
   });
 }
 
+function searchArticles(callback, searchInput) {
+  const foundArticles = [];
+
+  articlesList.forEach((article) => {
+    const title = article.title.toLowerCase();
+    const description = article.description.toLowerCase();
+
+    // Check if the search input matches the title or description
+    if (title.includes(searchInput) || description.includes(searchInput)) {
+      foundArticles.push(article);
+    }
+
+    if (foundArticles.length > 0) {
+      renderCards(foundArticles, callback);
+    } else {
+      const articlesContainer = document.getElementById('articles-container');
+      articlesContainer.innerHTML = '';
+    }
+  });
+}
+
 export {
   getArticlesList,
   getArticle,
   renderArticlesList,
   renderCategoriesList,
   filterByCategory,
+  searchArticles,
 };

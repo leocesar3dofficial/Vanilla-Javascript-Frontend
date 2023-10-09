@@ -3,6 +3,7 @@ import {
   renderCategoriesList,
   renderArticlesList,
   getArticle,
+  searchArticles,
 } from './articles.js';
 
 const menu = document.getElementById('menu');
@@ -19,11 +20,18 @@ async function render404Template() {
 function performAction(path, callback) {
   switch (path) {
     case routes['/artigos']: {
+      const searchInput = document.getElementById('search-input');
+
+      searchInput.addEventListener('input', () => {
+        searchArticles(callback, searchInput.value.trim().toLowerCase());
+      });
+
       renderCategoriesList(callback);
       const categoriaParam = parseInt(
         new URLSearchParams(window.location.search).get('categoria'),
         10,
       );
+
       renderArticlesList(categoriaParam, callback);
       break;
     }

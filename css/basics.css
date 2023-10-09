@@ -31,6 +31,8 @@ COLORS
 
   --error-color: #6b0303;
   --warning-color: rgb(145, 94, 0);
+
+  --standard-border-radius: 0.5rem;
 }
 
 html {
@@ -123,7 +125,7 @@ button {
   background-color: var(--background-color);
   color: var(--text-color);
   border: none;
-  border-radius: 0.5rem;
+  border-radius: var(--standard-border-radius);
   cursor: pointer;
   text-align: center;
   transition: background-color 0.1s ease;
@@ -209,4 +211,19 @@ ol ul li {
   width: 2rem;
   height: 2rem;
   fill: var(--icon-fill);
+}
+
+input[type="text"] {
+  background-color: var(--secondary-color);
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  color: var(--text-color-dark);
+  border: none;
+  outline: none;
+  margin-top: 0.5rem;
+}
+
+input[type="text"]::placeholder {
+  color: var(--text-color-dark);
+  font-style: italic;
 }
