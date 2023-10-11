@@ -4,7 +4,7 @@ function setCard(article) {
   const formattedDate = dateModified.toLocaleDateString('pt-BR', options);
   const htmlSnippet = `
 <div class="article-card">
-  <a href="/artigo/${article.slug}" class="article-card-link">
+  <a href="/artigo/${article.slug}">
     <img src="${article.image}" alt="foto do artigo"/>
   </a>
   <div class="card-content">

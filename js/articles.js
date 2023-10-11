@@ -3,6 +3,7 @@ import Pagination from './pagination.js';
 
 let articlesList = [];
 let articlesCategories = [];
+let filteredArticles = [];
 
 function displayMessage(elementId, text) {
   const systemMessage = document.getElementById(elementId);
@@ -87,32 +88,27 @@ function filterByCategory(categoryIndex) {
     return null;
   }
 
-  const filteredArticles = articlesList.filter(
+  filteredArticles = articlesList.filter(
     (article) => article.category === category,
   );
 
   return filteredArticles;
 }
 
-function renderCards(filteredArticles) {
+function renderCards(list) {
   const articlesContainer = document.getElementById('articles-container');
   articlesContainer.innerHTML = '';
 
-  for (let i = 0; i < filteredArticles.length; i += 1) {
-    const article = filteredArticles[i];
+  for (let i = 0; i < list.length; i += 1) {
+    const article = list[i];
     articlesContainer.innerHTML += setCard(article);
   }
-
-  const cardLinks = document.getElementsByClassName('article-card-link');
-
-  Array.from(cardLinks).forEach((link) => {
-    link.addEventListener('click');
-  });
 }
 
 function paginate() {
   const containerElement = document.getElementById('paginator'); // Replace with your container element
-  const totalPages = 10; // Replace with the total number of pages
+  const itemsPerPage = 3;
+  const totalPages = Math.ceil(filteredArticles.length / itemsPerPage);
   const currentPage = 1; // Replace with the current page number
 
   const onPageChange = (page) => {
@@ -125,8 +121,6 @@ function paginate() {
 }
 
 function renderArticlesList(searchValue) {
-  let filteredArticles = [];
-
   if (Number.isNaN(searchValue)) {
     filteredArticles = articlesList;
   } else {
