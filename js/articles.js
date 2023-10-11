@@ -123,7 +123,7 @@ function searchArticles(searchInput) {
     } else {
       filteredArticles = [];
       const articlesContainer = document.getElementById('articles-container');
-      articlesContainer.innerHTML = '<h1>Nenhum artigo encontrado.</h1>';
+      articlesContainer.innerHTML = '<h2>Nenhum artigo encontrado.</h2>';
     }
   });
 }
@@ -172,11 +172,11 @@ function renderCategoriesList() {
   });
 }
 
-function renderArticlesList(searchValue) {
-  if (Number.isNaN(searchValue)) {
+function renderArticlesList(categoryIndex) {
+  if (Number.isNaN(categoryIndex)) {
     filteredArticles = articlesList;
   } else {
-    filteredArticles = filterByCategory(searchValue);
+    filteredArticles = filterByCategory(categoryIndex);
 
     if (filteredArticles === null) {
       filteredArticles = articlesList;
