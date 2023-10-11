@@ -6,7 +6,6 @@ import {
   searchArticles,
 } from './articles.js';
 
-const menu = document.getElementById('menu');
 const content = document.getElementById('content');
 const pageDescription = document.querySelector('meta[name="description"]');
 
@@ -17,22 +16,22 @@ async function render404Template() {
   content.innerHTML = html;
 }
 
-function performAction(path, callback) {
+function performAction(path) {
   switch (path) {
     case routes['/artigos']: {
       const searchInput = document.getElementById('search-input');
 
       searchInput.addEventListener('input', () => {
-        searchArticles(callback, searchInput.value.trim().toLowerCase());
+        searchArticles(searchInput.value.trim().toLowerCase());
       });
 
-      renderCategoriesList(callback);
+      renderCategoriesList();
       const categoriaParam = parseInt(
         new URLSearchParams(window.location.search).get('categoria'),
         10,
       );
 
-      renderArticlesList(categoriaParam, callback);
+      renderArticlesList(categoriaParam);
       break;
     }
     case routes['/artigo']: {
@@ -51,7 +50,7 @@ function performAction(path, callback) {
   }
 }
 
-async function handlePath(callback) {
+async function handlePath() {
   const path = window.location.pathname;
   const pathnameFirstPart = path.split('/')[1];
   const match = routes[`/${pathnameFirstPart}`] || routes[404];
@@ -59,25 +58,22 @@ async function handlePath(callback) {
   document.title = match.title;
   pageDescription.setAttribute('content', match.description);
   content.innerHTML = html;
-  performAction(match, callback);
+  performAction(match);
 }
 
-// executed when a link with a click event listener points here
-const route = (event) => {
-  event.preventDefault();
-  window.history.pushState({}, '', event.currentTarget.href);
-  handlePath(route);
-};
+// listen to every link clicked in the SPA and direct its action to the router
+document.addEventListener('click', (event) => {
+  const linkElement = event.target.closest('a');
 
-Array.from(menu.children).forEach((element) => {
-  element.querySelector('a').addEventListener('click', route);
+  if (linkElement) {
+    const linkHref = linkElement.getAttribute('href');
+    event.preventDefault();
+    window.history.pushState({}, '', linkHref);
+    handlePath();
+  }
 });
-
-function initRouter() {
-  handlePath(route);
-}
 
 // fired when back or forward button on browser is pressed
 window.onpopstate = handlePath;
 
-export default initRouter;
+export default handlePath;

@@ -1,4 +1,4 @@
-import initRouter from './router.js';
+import handlePath from './router.js';
 
 if (!window.import === false) {
   document.getElementById('module-support-warning').style.display = 'block';
@@ -49,5 +49,5 @@ menuLinks.forEach((link) => {
 document.addEventListener('DOMContentLoaded', () => {
   enableThemes();
   // checks the URL when the page is loaded the first time and load the requested content
-  initRouter();
+  handlePath();
 });

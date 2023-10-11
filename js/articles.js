@@ -94,7 +94,7 @@ function filterByCategory(categoryIndex) {
   return filteredArticles;
 }
 
-function renderCards(filteredArticles, callback) {
+function renderCards(filteredArticles) {
   const articlesContainer = document.getElementById('articles-container');
   articlesContainer.innerHTML = '';
 
@@ -106,7 +106,7 @@ function renderCards(filteredArticles, callback) {
   const cardLinks = document.getElementsByClassName('article-card-link');
 
   Array.from(cardLinks).forEach((link) => {
-    link.addEventListener('click', callback);
+    link.addEventListener('click');
   });
 }
 
@@ -124,7 +124,7 @@ function paginate() {
   const pagination = new Pagination(containerElement, totalPages, currentPage, onPageChange);
 }
 
-function renderArticlesList(searchValue, callback) {
+function renderArticlesList(searchValue) {
   let filteredArticles = [];
 
   if (Number.isNaN(searchValue)) {
@@ -137,36 +137,34 @@ function renderArticlesList(searchValue, callback) {
     }
   }
 
-  renderCards(filteredArticles, callback);
+  renderCards(filteredArticles);
   paginate();
 }
 
-function addLink(element, href, textContent, callback) {
+function addLink(element, href, textContent) {
   const newLink = document.createElement('a');
   newLink.href = href;
   newLink.textContent = textContent;
-  newLink.addEventListener('click', callback);
   element.appendChild(newLink);
 }
 
-function renderCategoriesList(callback) {
+function renderCategoriesList() {
   const categoryFilterContainer = document.getElementById(
     'articles-categories',
   );
 
-  addLink(categoryFilterContainer, '/artigos', 'Todos', callback);
+  addLink(categoryFilterContainer, '/artigos', 'Todos');
 
   articlesCategories.forEach((category) => {
     addLink(
       categoryFilterContainer,
       `/artigos?categoria=${articlesCategories.indexOf(category)}`,
       category,
-      callback,
     );
   });
 }
 
-function searchArticles(callback, searchInput) {
+function searchArticles(searchInput) {
   const foundArticles = [];
 
   articlesList.forEach((article) => {
@@ -179,7 +177,7 @@ function searchArticles(callback, searchInput) {
     }
 
     if (foundArticles.length > 0) {
-      renderCards(foundArticles, callback);
+      renderCards(foundArticles);
     } else {
       const articlesContainer = document.getElementById('articles-container');
       articlesContainer.innerHTML = '';
