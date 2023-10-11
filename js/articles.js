@@ -88,11 +88,11 @@ function filterByCategory(categoryIndex) {
     return null;
   }
 
-  filteredArticles = articlesList.filter(
+  const articlesInCategory = articlesList.filter(
     (article) => article.category === category,
   );
 
-  return filteredArticles;
+  return articlesInCategory;
 }
 
 function renderCards(list) {
@@ -105,7 +105,36 @@ function renderCards(list) {
   }
 }
 
+function searchArticles(searchInput) {
+  const foundArticles = [];
+
+  articlesList.forEach((article) => {
+    const title = article.title.toLowerCase();
+    const description = article.description.toLowerCase();
+
+    // Check if the search input matches the title or description
+    if (title.includes(searchInput) || description.includes(searchInput)) {
+      foundArticles.push(article);
+    }
+
+    if (foundArticles.length > 0) {
+      filteredArticles = foundArticles;
+      renderCards(filteredArticles);
+    } else {
+      filteredArticles = [];
+      const articlesContainer = document.getElementById('articles-container');
+      articlesContainer.innerHTML = '<h1>Nenhum artigo encontrado.</h1>';
+    }
+  });
+}
+
 function paginate() {
+  const searchInput = document.getElementById('search-input');
+
+  searchInput.addEventListener('input', () => {
+    searchArticles(searchInput.value.trim().toLowerCase());
+  });
+
   const containerElement = document.getElementById('paginator'); // Replace with your container element
   const itemsPerPage = 3;
   const totalPages = Math.ceil(filteredArticles.length / itemsPerPage);
@@ -118,21 +147,6 @@ function paginate() {
 
   // eslint-disable-next-line no-unused-vars
   const pagination = new Pagination(containerElement, totalPages, currentPage, onPageChange);
-}
-
-function renderArticlesList(searchValue) {
-  if (Number.isNaN(searchValue)) {
-    filteredArticles = articlesList;
-  } else {
-    filteredArticles = filterByCategory(searchValue);
-
-    if (filteredArticles === null) {
-      filteredArticles = articlesList;
-    }
-  }
-
-  renderCards(filteredArticles);
-  paginate();
 }
 
 function addLink(element, href, textContent) {
@@ -158,32 +172,24 @@ function renderCategoriesList() {
   });
 }
 
-function searchArticles(searchInput) {
-  const foundArticles = [];
+function renderArticlesList(searchValue) {
+  if (Number.isNaN(searchValue)) {
+    filteredArticles = articlesList;
+  } else {
+    filteredArticles = filterByCategory(searchValue);
 
-  articlesList.forEach((article) => {
-    const title = article.title.toLowerCase();
-    const description = article.description.toLowerCase();
-
-    // Check if the search input matches the title or description
-    if (title.includes(searchInput) || description.includes(searchInput)) {
-      foundArticles.push(article);
+    if (filteredArticles === null) {
+      filteredArticles = articlesList;
     }
+  }
 
-    if (foundArticles.length > 0) {
-      renderCards(foundArticles);
-    } else {
-      const articlesContainer = document.getElementById('articles-container');
-      articlesContainer.innerHTML = '';
-    }
-  });
+  renderCategoriesList();
+  renderCards(filteredArticles);
+  paginate();
 }
 
 export {
   getArticlesList,
   getArticle,
   renderArticlesList,
-  renderCategoriesList,
-  filterByCategory,
-  searchArticles,
 };

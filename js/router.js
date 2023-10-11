@@ -1,9 +1,7 @@
 import routes from './routes.js';
 import {
-  renderCategoriesList,
   renderArticlesList,
   getArticle,
-  searchArticles,
 } from './articles.js';
 
 const content = document.getElementById('content');
@@ -19,13 +17,6 @@ async function render404Template() {
 function performAction(path) {
   switch (path) {
     case routes['/artigos']: {
-      const searchInput = document.getElementById('search-input');
-
-      searchInput.addEventListener('input', () => {
-        searchArticles(searchInput.value.trim().toLowerCase());
-      });
-
-      renderCategoriesList();
       const categoriaParam = parseInt(
         new URLSearchParams(window.location.search).get('categoria'),
         10,
