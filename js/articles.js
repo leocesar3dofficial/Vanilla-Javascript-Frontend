@@ -1,4 +1,5 @@
 import setCard from './articleCard.js';
+import Pagination from './pagination.js';
 
 let articlesList = [];
 let articlesCategories = [];
@@ -109,6 +110,20 @@ function renderCards(filteredArticles, callback) {
   });
 }
 
+function paginate() {
+  const containerElement = document.getElementById('paginator'); // Replace with your container element
+  const totalPages = 10; // Replace with the total number of pages
+  const currentPage = 1; // Replace with the current page number
+
+  const onPageChange = (page) => {
+    // Handle page change (e.g., fetch and display new data)
+    console.log(`Page changed to: ${page}`);
+  };
+
+  // eslint-disable-next-line no-unused-vars
+  const pagination = new Pagination(containerElement, totalPages, currentPage, onPageChange);
+}
+
 function renderArticlesList(searchValue, callback) {
   let filteredArticles = [];
 
@@ -123,6 +138,7 @@ function renderArticlesList(searchValue, callback) {
   }
 
   renderCards(filteredArticles, callback);
+  paginate();
 }
 
 function addLink(element, href, textContent, callback) {

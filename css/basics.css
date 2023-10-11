@@ -7,6 +7,7 @@
   font-family: "Roboto";
   src: url(/fonts/Roboto-Bold.ttf);
 }
+
 /* @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:ital,wght@0,400;1,900&display=swap"); */
 
 /*
@@ -116,7 +117,7 @@ video {
   max-width: 100%;
 }
 
-strong {
+strong, label {
   font-weight: bold;
 }
 
@@ -134,14 +135,24 @@ button {
   color: var(--text-color);
 }
 
+button:disabled {
+  color: var(--accent-color);
+  cursor: default;
+}
+
 button:hover {
   background-color: var(--text-color);
   color: var(--background-color);
 }
 
+button:disabled:hover {
+  background-color: var(--background-color);
+  color: var(--accent-color);
+}
+
 p {
   font-size: 1rem;
-  font-family: "Open Sans", sans-serif; /* Apply the new font */
+  font-family: "Open Sans", sans-serif;
 }
 
 /* Styling for the <hr> tag */
@@ -168,11 +179,11 @@ hr:after {
 a {
   color: var(--accent-color);
   text-decoration: none;
-  transition: color 0.3s; /* Add transition effect for smoother change */
+  transition: color 0.3s;
 }
 
 a:hover {
-  color: var(--primary-color); /* Change link color on hover */
+  color: var(--primary-color);
 }
 
 /* Basic styling for lists */
@@ -220,10 +231,29 @@ input[type="text"] {
   color: var(--text-color-dark);
   border: none;
   outline: none;
-  margin-top: 0.5rem;
+  margin: 0.25rem 0.25rem;
 }
 
 input[type="text"]::placeholder {
   color: var(--text-color-dark);
   font-style: italic;
+}
+
+#paginator {
+  text-align: center;
+}
+
+#paginator *{
+ margin: 0.25rem;
+ font-size: 1rem;
+ font-weight: bolder;
+ padding: 0.25rem 0.5rem;
+ width: 3rem;
+ display: inline-block;
+ text-align: center;
+}
+
+#paginator span {
+  border: none;
+  width: 7rem;
 }
