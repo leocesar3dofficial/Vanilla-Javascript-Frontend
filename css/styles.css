@@ -337,7 +337,7 @@ ARTICLES
 #article-container h3,
 .article-card h3 {
   background-color: var(--accent-color);
-  color: var(--text-color-dark);
+  color: var(--background-color);
   border-radius: 0.25rem;
   width: fit-content;
   padding: 0.25rem 0.5rem;
