@@ -5,6 +5,9 @@ let articlesList = [];
 let articlesCategories = [];
 let filteredArticles = [];
 
+const itemsPerPage = 3;
+let currentPage = 1;
+
 function displayMessage(elementId, text) {
   const systemMessage = document.getElementById(elementId);
   systemMessage.style.display = 'block';
@@ -104,6 +107,19 @@ function renderCards(list) {
     articlesContainer.innerHTML += setCard(article);
   }
 }
+const onPageChange = (page) => {
+  currentPage = page;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  renderCards(filteredArticles.slice(startIndex, endIndex));
+};
+
+function paginate(articlesLength) {
+  const paginatorElement = document.getElementById('paginator');
+  const totalPages = Math.ceil(articlesLength / itemsPerPage);
+  // eslint-disable-next-line no-unused-vars
+  const pagination = new Pagination(paginatorElement, totalPages, currentPage, onPageChange);
+}
 
 function searchArticles(searchInput) {
   const foundArticles = [];
@@ -116,37 +132,20 @@ function searchArticles(searchInput) {
     if (title.includes(searchInput) || description.includes(searchInput)) {
       foundArticles.push(article);
     }
-
-    if (foundArticles.length > 0) {
-      filteredArticles = foundArticles;
-      renderCards(filteredArticles);
-    } else {
-      filteredArticles = [];
-      const articlesContainer = document.getElementById('articles-container');
-      articlesContainer.innerHTML = '<h2>Nenhum artigo encontrado.</h2>';
-    }
-  });
-}
-
-function paginate() {
-  const searchInput = document.getElementById('search-input');
-
-  searchInput.addEventListener('input', () => {
-    searchArticles(searchInput.value.trim().toLowerCase());
   });
 
-  const containerElement = document.getElementById('paginator'); // Replace with your container element
-  const itemsPerPage = 3;
-  const totalPages = Math.ceil(filteredArticles.length / itemsPerPage);
-  const currentPage = 1; // Replace with the current page number
-
-  const onPageChange = (page) => {
-    // Handle page change (e.g., fetch and display new data)
-    console.log(`Page changed to: ${page}`);
-  };
-
-  // eslint-disable-next-line no-unused-vars
-  const pagination = new Pagination(containerElement, totalPages, currentPage, onPageChange);
+  if (foundArticles.length > 0) {
+    filteredArticles = foundArticles;
+    currentPage = 1;
+    renderCards(filteredArticles.slice(0, itemsPerPage));
+    paginate(foundArticles.length);
+  } else {
+    filteredArticles = [];
+    const articlesContainer = document.getElementById('articles-container');
+    articlesContainer.innerHTML = '<h2>Nenhum artigo encontrado.</h2>';
+    const paginatorElement = document.getElementById('paginator');
+    paginatorElement.innerHTML = '';
+  }
 }
 
 function addLink(element, href, textContent) {
@@ -173,19 +172,31 @@ function renderCategoriesList() {
 }
 
 function renderArticlesList(categoryIndex) {
+  let articlesLength = 0;
+  currentPage = 1;
+  const searchInput = document.getElementById('search-input');
+
+  searchInput.addEventListener('input', () => {
+    searchArticles(searchInput.value.trim().toLowerCase());
+  });
+
   if (Number.isNaN(categoryIndex)) {
     filteredArticles = articlesList;
+    articlesLength = articlesList.length;
   } else {
     filteredArticles = filterByCategory(categoryIndex);
 
     if (filteredArticles === null) {
       filteredArticles = articlesList;
+      articlesLength = articlesList.length;
+    } else {
+      articlesLength = filteredArticles.length;
     }
   }
 
   renderCategoriesList();
-  renderCards(filteredArticles);
-  paginate();
+  renderCards(filteredArticles.slice(0, itemsPerPage));
+  paginate(articlesLength);
 }
 
 export {
