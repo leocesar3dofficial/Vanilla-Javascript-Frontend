@@ -281,6 +281,11 @@ ARTICLES
   width: 100%;
 }
 
+#articles-container h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .article-card {
   width: 330px;
   height: 370px;
