@@ -133,21 +133,39 @@ button {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-color);
+  display: flex;
+  justify-content:center;
 }
 
 button:disabled {
-  color: var(--accent-color);
   cursor: default;
 }
 
+button:disabled svg {
+  color: var(--accent-color);
+  fill: var(--accent-color);
+}
+
+button svg {
+  flex-shrink: 0; /* svg fits the size of the parent */
+}
+
+button:hover svg {
+  fill: var(--background-color);
+}
+
 button:hover {
-  background-color: var(--text-color);
+  background-color: var(--primary-color);
   color: var(--background-color);
 }
 
 button:disabled:hover {
   background-color: var(--background-color);
   color: var(--accent-color);
+}
+
+button:disabled:hover svg {
+  fill: var(--accent-color);
 }
 
 p {
@@ -231,7 +249,7 @@ input[type="text"] {
   color: var(--text-color-dark);
   border: none;
   outline: none;
-  margin: 0.25rem 0.25rem;
+  margin: 0.25rem 0;
 }
 
 input[type="text"]::placeholder {
@@ -240,7 +258,11 @@ input[type="text"]::placeholder {
 }
 
 #paginator {
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }
 
 #paginator * {
@@ -249,8 +271,11 @@ input[type="text"]::placeholder {
  font-weight: bolder;
  padding: 0.25rem 0.5rem;
  width: 3rem;
- display: inline-block;
- text-align: center;
+
+ /* display: inline-block; */
+ /* text-align: center; */
+ /* justify-content: center; */
+
 }
 
 #paginator span {

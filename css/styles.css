@@ -271,6 +271,10 @@ ARTICLES
   font-weight: bold;
 }
 
+.general-container {
+  padding: 1rem;
+}
+
 #articles-container {
   display: flex;
   flex-wrap: wrap;
@@ -291,11 +295,13 @@ ARTICLES
   height: 370px;
   border-radius: 0.5rem;
   overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .article-card:hover {
   box-shadow: var(--secondary-color) 0px 4px 8px -2px,
     var(--primary-color) 0px 0px 0px 1px;
+  transform: translateY(-5px) scale(1.05);
 }
 
 .article-card img {

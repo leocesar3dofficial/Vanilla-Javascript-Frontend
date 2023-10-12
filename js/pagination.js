@@ -13,13 +13,15 @@ class Pagination {
 
     // Create the "First page" button
     const firstPageButton = document.createElement('button');
-    firstPageButton.textContent = '|<';
+    // firstPageButton.textContent = '|<';
+    firstPageButton.innerHTML = '<svg class="icon"><use href="/icons/sprite-outline.svg#firstPage"></use></svg>';
     firstPageButton.disabled = this.currentPage === 1;
     firstPageButton.addEventListener('click', () => this.goToPage(1));
 
     // Create the "Previous page" button
     const previousPageButton = document.createElement('button');
-    previousPageButton.textContent = '<<';
+    // previousPageButton.textContent = '<<';
+    previousPageButton.innerHTML = '<svg class="icon"><use href="/icons/sprite-outline.svg#previousPage"></use></svg>';
     previousPageButton.disabled = this.currentPage === 1;
     previousPageButton.addEventListener('click', () => this.goToPage(this.currentPage - 1));
 
@@ -29,13 +31,15 @@ class Pagination {
 
     // Create the "Next page" button
     const nextPageButton = document.createElement('button');
-    nextPageButton.textContent = '>>';
+    // nextPageButton.textContent = '>>';
+    nextPageButton.innerHTML = '<svg class="icon"><use href="/icons/sprite-outline.svg#nextPage"></use></svg>';
     nextPageButton.disabled = this.currentPage === this.totalPages;
     nextPageButton.addEventListener('click', () => this.goToPage(this.currentPage + 1));
 
     // Create the "Last page" button
     const lastPageButton = document.createElement('button');
-    lastPageButton.textContent = '>|';
+    // lastPageButton.textContent = '>|';
+    lastPageButton.innerHTML = '<svg class="icon"><use href="/icons/sprite-outline.svg#lastPage"></use></svg>';
     lastPageButton.disabled = this.currentPage === this.totalPages;
     lastPageButton.addEventListener('click', () => this.goToPage(this.totalPages));
 
