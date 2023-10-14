@@ -140,10 +140,10 @@ const onPageChange = (page) => {
 };
 
 function paginate(articlesLength) {
-  const paginatorElement = document.getElementById('paginator');
+  const paginationElement = document.getElementById('pagination');
   const totalPages = Math.ceil(articlesLength / itemsPerPage);
   // eslint-disable-next-line no-unused-vars
-  const pagination = new Pagination(paginatorElement, totalPages, currentPage, onPageChange);
+  const pagination = new Pagination(paginationElement, totalPages, currentPage, onPageChange);
 }
 
 function searchArticles(searchInput) {
@@ -168,8 +168,8 @@ function searchArticles(searchInput) {
     filteredArticles = [];
     const articlesContainer = document.getElementById('articles-container');
     articlesContainer.innerHTML = '<h2>Nenhum artigo encontrado.</h2>';
-    const paginatorElement = document.getElementById('paginator');
-    paginatorElement.innerHTML = '';
+    const paginationElement = document.getElementById('pagination');
+    paginationElement.innerHTML = '';
   }
 }
 
