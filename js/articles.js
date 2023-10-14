@@ -128,6 +128,11 @@ function renderCards(list) {
   }
 }
 const onPageChange = (page) => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+
   currentPage = page;
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
