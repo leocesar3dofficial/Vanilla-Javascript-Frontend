@@ -9,11 +9,23 @@ const themeToggle = document.getElementById('theme-toggle');
 const { body } = document;
 
 function enableThemes() {
+  const storedTheme = localStorage.getItem('theme');
+
+  if (storedTheme) {
+    body.setAttribute('data-theme', storedTheme);
+
+    if (storedTheme === 'dark') {
+      themeToggle.checked = true;
+    }
+  }
+
   themeToggle.addEventListener('change', () => {
     if (body.getAttribute('data-theme') === 'light') {
       body.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
     } else if (body.getAttribute('data-theme') === 'dark') {
       body.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
     }
   });
 }

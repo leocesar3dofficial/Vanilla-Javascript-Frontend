@@ -153,7 +153,6 @@ function searchArticles(searchInput) {
     const title = article.title.toLowerCase();
     const description = article.description.toLowerCase();
 
-    // Check if the search input matches the title or description
     if (title.includes(searchInput) || description.includes(searchInput)) {
       foundArticles.push(article);
     }
