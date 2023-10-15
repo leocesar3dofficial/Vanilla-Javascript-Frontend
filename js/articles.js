@@ -196,6 +196,8 @@ function renderCategoriesList() {
 }
 
 function renderArticlesList(categoryIndex) {
+  // eslint-disable-next-line no-console
+  console.log(articlesList.length); // remover depois lalall
   let articlesLength = 0;
   currentPage = 1;
   const searchInput = document.getElementById('search-input');
