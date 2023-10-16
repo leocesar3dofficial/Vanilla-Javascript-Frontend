@@ -76,6 +76,10 @@ const loadArticles = async () => {
 };
 
 async function getArticle(articlePath) {
+  if (articlesList.length === 0) {
+    await loadArticles();
+  }
+
   const articleObject = articlesList.find(
     (article) => article.slug === articlePath,
   );
@@ -195,6 +199,10 @@ function renderCategoriesList() {
 }
 
 async function renderArticlesList(categoryIndex) {
+  if (articlesList.length === 0) {
+    await loadArticles();
+  }
+
   let articlesLength = 0;
   currentPage = 1;
   const searchInput = document.getElementById('search-input');
@@ -202,10 +210,6 @@ async function renderArticlesList(categoryIndex) {
   searchInput.addEventListener('input', () => {
     searchArticles(searchInput.value.trim().toLowerCase());
   });
-
-  if (articlesList.length === 0) {
-    await loadArticles();
-  }
 
   if (Number.isNaN(categoryIndex)) {
     filteredArticles = articlesList;
