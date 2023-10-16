@@ -49,9 +49,8 @@ const getArticlesList = async () => {
     return result;
   } catch (error) {
     displayMessage('system-message', `Fetch error: ${error}`);
+    return [];
   }
-
-  return [];
 };
 
 function extractUniqueCategories(jsonData) {
@@ -67,14 +66,14 @@ function extractUniqueCategories(jsonData) {
   return categories;
 }
 
-(async () => {
+const loadArticles = async () => {
   try {
     articlesList = await getArticlesList();
     articlesCategories = extractUniqueCategories(articlesList);
   } catch (error) {
     displayMessage('system-message', `Error: ${error}`);
   }
-})();
+};
 
 async function getArticle(articlePath) {
   const articleObject = articlesList.find(
@@ -195,9 +194,7 @@ function renderCategoriesList() {
   });
 }
 
-function renderArticlesList(categoryIndex) {
-  // eslint-disable-next-line no-console
-  console.log(articlesList.length); // remover depois lalall
+async function renderArticlesList(categoryIndex) {
   let articlesLength = 0;
   currentPage = 1;
   const searchInput = document.getElementById('search-input');
@@ -205,6 +202,10 @@ function renderArticlesList(categoryIndex) {
   searchInput.addEventListener('input', () => {
     searchArticles(searchInput.value.trim().toLowerCase());
   });
+
+  if (articlesList.length === 0) {
+    await loadArticles();
+  }
 
   if (Number.isNaN(categoryIndex)) {
     filteredArticles = articlesList;
