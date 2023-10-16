@@ -309,7 +309,7 @@ ARTICLES
 
 .article-card img {
   object-fit: cover;
-  height: 33%;
+  height: 122px;
   width: 100%;
   transition: transform 0.5s ease;
 }
@@ -335,6 +335,8 @@ ARTICLES
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height:normal;
+  margin-top: 0;
 }
 
 #article-container h3,
