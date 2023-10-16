@@ -15,7 +15,7 @@ class Pagination {
     const firstPageButton = document.createElement('button');
     // firstPageButton.textContent = '|<';
     firstPageButton.innerHTML = '<svg class="icon"><use href="/icons/sprite-outline.svg#firstPage"></use></svg>';
-    firstPageButton.title = 'First page';
+    firstPageButton.title = 'Primeira';
     firstPageButton.disabled = this.currentPage === 1;
     firstPageButton.addEventListener('click', () => this.goToPage(1));
 
@@ -23,7 +23,7 @@ class Pagination {
     const previousPageButton = document.createElement('button');
     // previousPageButton.textContent = '<<';
     previousPageButton.innerHTML = '<svg class="icon"><use href="/icons/sprite-outline.svg#previousPage"></use></svg>';
-    previousPageButton.title = 'Previous page';
+    previousPageButton.title = 'Anterior';
     previousPageButton.disabled = this.currentPage === 1;
     previousPageButton.addEventListener('click', () => this.goToPage(this.currentPage - 1));
 
@@ -35,7 +35,7 @@ class Pagination {
     const nextPageButton = document.createElement('button');
     // nextPageButton.textContent = '>>';
     nextPageButton.innerHTML = '<svg class="icon"><use href="/icons/sprite-outline.svg#nextPage"></use></svg>';
-    nextPageButton.title = 'Next page';
+    nextPageButton.title = 'Próxima';
     nextPageButton.disabled = this.currentPage === this.totalPages;
     nextPageButton.addEventListener('click', () => this.goToPage(this.currentPage + 1));
 
@@ -43,7 +43,7 @@ class Pagination {
     const lastPageButton = document.createElement('button');
     // lastPageButton.textContent = '>|';
     lastPageButton.innerHTML = '<svg class="icon"><use href="/icons/sprite-outline.svg#lastPage"></use></svg>';
-    lastPageButton.title = 'Last page';
+    lastPageButton.title = 'Última';
     lastPageButton.disabled = this.currentPage === this.totalPages;
     lastPageButton.addEventListener('click', () => this.goToPage(this.totalPages));
 
