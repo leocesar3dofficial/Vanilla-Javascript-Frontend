@@ -131,7 +131,7 @@ button {
   border-radius: var(--standard-border-radius);
   cursor: pointer;
   text-align: center;
-  transition: background-color 0.1s ease;
+  transition: background-color 0.3s ease;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-color);
@@ -199,7 +199,7 @@ hr:after {
 a {
   color: var(--accent-color);
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 a:hover {
