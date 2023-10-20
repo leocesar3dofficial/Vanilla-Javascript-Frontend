@@ -197,13 +197,13 @@ hr:after {
 
 /* Styling for the links */
 a {
-  color: var(--accent-color);
+  color: var(--primary-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: var(--primary-color);
+  color: var(--accent-color);
 }
 
 /* Basic styling for lists */

@@ -2,11 +2,12 @@
   <body>
     <div class="page-container">
       <h1>Artigos</h1>
-      <div class="general-container">
-        <label for="search-input">Procure por artigos:</label>
-        <input type="text" id="search-input" placeholder="Procurar...">
+      <div id="articles-categories">
+        <div id="search-box">
+          <svg  aria-label="search icon" class="icon"><use href="/icons/sprite-outline.svg#magnifyingGlass"></use></svg>
+          <input type="text" id="search-input" placeholder="Procurar">
+        </div>
       </div>
-      <div id="articles-categories"></div>
       <div id="articles-container"></div>
       <div id="pagination"></div>
     </div>

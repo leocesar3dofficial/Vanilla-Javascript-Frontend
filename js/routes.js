@@ -1,4 +1,4 @@
-const urlPageTitle = 'Nome do website';
+const urlPageTitle = 'Leocesar3D';
 
 const routes = {
   '/': {
@@ -8,7 +8,7 @@ const routes = {
   },
   '/sobre': {
     template: '/templates/about.html',
-    title: `Sobre nós | ${urlPageTitle}`,
+    title: `Sobre | ${urlPageTitle}`,
     description: 'Sobre nós',
   },
   '/contato': {
