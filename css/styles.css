@@ -326,7 +326,11 @@ ARTICLES
   text-align: left;
 }
 
-#article-container h2,
+#article-container h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .article-card h2 {
   font-size: 1.5rem;
   font-weight: 700;
