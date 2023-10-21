@@ -149,8 +149,8 @@ const onPageChange = (page) => {
 function paginate(articlesLength) {
   const paginationElement = document.getElementById('pagination');
   const totalPages = Math.ceil(articlesLength / itemsPerPage);
-  // eslint-disable-next-line no-unused-vars
   const pagination = new Pagination(paginationElement, totalPages, currentPage, onPageChange);
+  pagination.render();
 }
 
 function searchArticles(searchInput) {
