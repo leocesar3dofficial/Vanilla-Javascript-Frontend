@@ -1,0 +1,78 @@
+<html><head></head><body><h1>Algoritmos de Ordenação: Entendendo e Comparando</h1>
+<p><img src="/img/algoritmos-ordenacao.webp" alt="Imagem 1"></p>
+<h3>Algoritmos</h3>
+<p>Os algoritmos de ordenação desempenham um papel fundamental na computação e na ciência da computação. Eles permitem que os programadores organizem conjuntos de dados de uma maneira específica, tornando-os mais acessíveis e úteis para as aplicações. Neste artigo, exploraremos diferentes tipos de algoritmos de ordenação, desde os mais simples até os mais eficientes, analisando suas características, etapas e complexidades.</p>
+<h2>Características dos Algoritmos de Ordenação</h2>
+<p>Antes de mergulharmos nos algoritmos específicos, é importante compreender as características comuns que definem a ordenação de dados:</p>
+<ol>
+<li><p><strong>Organização de Dados</strong>: Todos os algoritmos de ordenação têm o propósito de organizar os dados de entrada de uma maneira específica, tornando-os mais acessíveis e úteis para as aplicações.</p>
+</li>
+<li><p><strong>Classificação Crescente/Decrescente</strong>: Os dados podem ser classificados em ordem crescente (do menor para o maior) ou decrescente (do maior para o menor), dependendo das necessidades do problema.</p>
+</li>
+</ol>
+<p>Agora, vamos explorar alguns dos algoritmos de ordenação mais conhecidos, classificando-os do mais lento ao mais rápido em termos de complexidade.</p>
+<h2>1. Bubble Sort</h2>
+<p>O <strong>Bubble Sort</strong> é um dos algoritmos de ordenação mais simples, mas também um dos menos eficientes. Ele é adequado para conjuntos de dados pequenos, mas pode se tornar impraticável em conjuntos maiores.</p>
+<h3>Etapas do Bubble Sort</h3>
+<ol>
+<li><p>Atravessa a lista da esquerda para a direita, comparando os elementos adjacentes, movendo o maior elemento para a direita.</p>
+</li>
+<li><p>Repete esse processo até que todos os elementos estejam na posição correta.</p>
+</li>
+</ol>
+<h3>Complexidade do Bubble Sort</h3>
+<ul>
+<li>Tempo: O(N^2) - Pior caso.</li>
+<li>Espaço: O(1) - Uso de espaço constante.</li>
+</ul>
+<h2>2. Selection Sort</h2>
+<p>O <strong>Selection Sort</strong> é um algoritmo simples e eficiente que realiza repetidas seleções do menor (ou maior) elemento da parte não classificada e o coloca na parte classificada da lista.</p>
+<h3>Etapas do Selection Sort</h3>
+<ol>
+<li><p>Seleciona repetidamente o menor (ou maior) elemento da parte não classificada.</p>
+</li>
+<li><p>Troca o elemento selecionado com o elemento na parte classificada da lista.</p>
+</li>
+</ol>
+<h3>Complexidade do Selection Sort</h3>
+<ul>
+<li>Tempo: O(N^2) - Pior caso.</li>
+<li>Espaço: O(1) - Uso de espaço constante.</li>
+</ul>
+<h2>3. Insertion Sort</h2>
+<p>O <strong>Insertion Sort</strong> é semelhante a classificar cartas em um baralho, onde a matriz de dados é virtualmente dividida em uma parte classificada e outra não classificada.</p>
+<h3>Etapas do Insertion Sort</h3>
+<ol>
+<li>Os valores da parte não classificada são selecionados e colocados na posição correta na parte classificada.</li>
+</ol>
+<h3>Complexidade do Insertion Sort</h3>
+<ul>
+<li>Tempo: O(N^2) - Pior caso.</li>
+<li>Espaço: O(N) - Uso de espaço linear.</li>
+</ul>
+<h4>Implementação do Insertion Sort em Python</h4>
+<pre><code class="language-python">def insertion_sort(lista):
+    for i in range(1, len(lista)):
+        chave = lista[i]
+        k = i
+        while k &gt; 0 and chave &lt; lista[k - 1]:
+            lista[k] = lista[k - 1]
+            k -= 1
+        lista[k] = chave
+</code></pre>
+<h2>4. Quick Sort</h2>
+<p>O <strong>Quick Sort</strong> é um algoritmo que utiliza a abordagem "Dividir e Conquistar" para ordenar os elementos. Embora seja eficiente na maioria dos casos, sua complexidade de tempo pode ser ineficiente em situações específicas.</p>
+<h3>Etapas do Quick Sort</h3>
+<ol>
+<li><p>Escolhe um pivô e o coloca em sua posição correta no array.</p>
+</li>
+<li><p>Classifica e particiona os elementos menores à esquerda e os maiores à direita.</p>
+</li>
+</ol>
+<h3>Complexidade do Quick Sort</h3>
+<ul>
+<li>Tempo: O(N * log(N)) - Geralmente eficiente, mas pode ser ruim em casos específicos.</li>
+<li>Espaço: O(1) - Uso de espaço constante.</li>
+</ul>
+<p>Em resumo, a escolha do algoritmo de ordenação depende do tamanho dos dados e dos requisitos de desempenho. Algoritmos como o Bubble Sort são simples, mas ineficientes para grandes conjuntos de dados, enquanto algoritmos como o Quick Sort são eficientes na maioria dos casos, mas podem ser problemáticos em situações específicas. Portanto, é essencial compreender as características e complexidades de cada algoritmo para escolher o mais adequado para cada situação.</p>
+<p class="date-modified">Modificado em: sábado, 21 de outubro de 2023</p></body></html>
