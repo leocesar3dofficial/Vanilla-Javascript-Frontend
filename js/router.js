@@ -56,16 +56,20 @@ async function handlePath() {
 document.addEventListener('click', (event) => {
   const linkElement = event.target.closest('a');
 
-  if (linkElement) {
-    const isBlankLink = linkElement.getAttribute('target') === '_blank';
-
-    if (!isBlankLink) {
-      event.preventDefault();
-      const linkHref = linkElement.getAttribute('href');
-      window.history.pushState({}, '', linkHref);
-      handlePath();
-    }
+  if (!linkElement) {
+    return;
   }
+
+  const isBlankLink = linkElement.getAttribute('target') === '_blank';
+
+  if (isBlankLink) {
+    return;
+  }
+
+  event.preventDefault();
+  const linkHref = linkElement.getAttribute('href');
+  window.history.pushState({}, '', linkHref);
+  handlePath();
 });
 
 // fired when back or forward button on browser is pressed
