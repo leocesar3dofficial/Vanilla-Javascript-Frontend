@@ -266,7 +266,7 @@ ARTICLES
 #article-container {
   text-align: left;
   width: 60%;
-  padding: 0 1rem;
+  padding: 1rem;
 }
 
 #article-container h1 {
@@ -300,7 +300,6 @@ ARTICLES
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  padding: 1rem;
   justify-content: center; /* Horizontal alignment (main axis) */
   align-items: center;
   width: 100%;
@@ -402,6 +401,7 @@ ARTICLES
   flex-wrap: wrap;
   justify-content: left; /* Horizontal alignment (main axis) */
   align-items: center;
+  padding: 0.5rem;
 }
 
 #articles-categories a {
