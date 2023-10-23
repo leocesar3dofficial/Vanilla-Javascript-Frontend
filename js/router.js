@@ -57,10 +57,14 @@ document.addEventListener('click', (event) => {
   const linkElement = event.target.closest('a');
 
   if (linkElement) {
-    const linkHref = linkElement.getAttribute('href');
-    event.preventDefault();
-    window.history.pushState({}, '', linkHref);
-    handlePath();
+    const isBlankLink = linkElement.getAttribute('target') === '_blank';
+
+    if (!isBlankLink) {
+      event.preventDefault();
+      const linkHref = linkElement.getAttribute('href');
+      window.history.pushState({}, '', linkHref);
+      handlePath();
+    }
   }
 });
 
