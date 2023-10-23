@@ -68,21 +68,22 @@ HAMBURGER MENU
 #menu {
   list-style: none;
   position: absolute;
-  top: 30px;
-  left: -330px;
-  width: 400px;
-  padding: 1rem 0;
+  top: 32px;
+  right: -10px;
+  width: 300px;
+  padding-bottom: 1rem;
   background-color: var(--secondary-color);
   transform-origin: 0% 0%;
   opacity: 0;
   border-radius: 0.25rem;
   transition: transform 0.5s ease, opacity 0.55s ease;
-  box-shadow: var(--secondary-color) 0px 4px 8px -2px,
-    var(--primary-color) 0px 0px 0px 1px;
 }
 
 #menu li {
-  margin-top: 1rem;
+  text-align: right;
+  margin: 1rem 0.5rem 0 0;
+  /* margin-top: 1rem;
+  margin-right: 0.5rem; */
 }
 
 #menu-toggle input:checked ~ ul {
