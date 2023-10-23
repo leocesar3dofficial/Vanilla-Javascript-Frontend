@@ -265,7 +265,7 @@ ARTICLES
 
 #article-container {
   text-align: left;
-  max-width: 60%;
+  width: 60%;
   padding: 0 1rem;
 }
 
@@ -441,6 +441,6 @@ RESPONSIVE
 
 @media screen and (max-width: 768px) {
   #article-container {
-    width: 90%;
+    width: 100%;
   }
 }

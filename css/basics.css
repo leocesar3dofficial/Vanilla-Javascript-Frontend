@@ -20,19 +20,19 @@ COLORS
 
 :root {
   --primary-color-light: #aa8639;
-  --primary-color-dark: #2f4073;
-
-  --secondary-color-light: #2f4073;
   --secondary-color-dark: #aa8639;
 
-  --text-color-light: #072448;
-  --text-color-dark: #faf7f9;
+  --secondary-color-light: #234cc6;
+  --primary-color-dark: #234cc6;
 
   --background-color-light: #faf7f9;
+  --text-color-dark: #faf7f9;
+
+  --text-color-light: #072448;
   --background-color-dark: #072448;
 
   --accent-color-light: #246068;
-  --accent-color-dark: #aa6f39;
+  --accent-color-dark: #b15524;
 
   --error-color: #6b0303;
   --warning-color: rgb(145, 94, 0);
