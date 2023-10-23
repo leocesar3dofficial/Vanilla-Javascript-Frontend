@@ -179,21 +179,22 @@ p {
 /* Styling for the <hr> tag */
 hr {
   border: none;
-  border-top: 1px solid var(--text-color);
-  color: var(--text-color);
+  border-top: 2px solid var(--accent-color);
+  color: var(--accent-color);
   overflow: visible;
   text-align: center;
   height: 5px;
-  width: 60%;
+  width: 100%;
   margin: 1rem 0;
 }
 
 hr:after {
   background: var(--background-color);
-  content: "< >";
+  content: "☕ LEOCESAR3D 🚀";
   padding: 0 4px;
   position: relative;
-  top: -10px;
+  top: -0.85rem;
+  font-weight: bolder;
 }
 
 /* Styling for the links */
@@ -305,7 +306,6 @@ SCROLLBAR
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: 0.25rem;
   background-color: var(--secondary-color);
 }
 

@@ -69,9 +69,9 @@ HAMBURGER MENU
   list-style: none;
   position: absolute;
   top: 41px;
-  left: -64px;
+  left: -330px;
   width: 400px;
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   background: var(--primary-color);
   transform-origin: 0% 0%;
   opacity: 0;
@@ -83,17 +83,16 @@ HAMBURGER MENU
 
 #menu li {
   margin-top: 1rem;
-
 }
 
 #menu-toggle input:checked ~ ul {
-  transform: none;
-  opacity: 1; /* Added opacity rule to make the menu visible when checked */
+  /* transform: none; */
+  opacity: 1;
 }
 
 #menu-toggle input:not(:checked) ~ ul {
-  transform: translate(-200%, 0);
-  opacity: 0; /* Added opacity rule to make the menu invisible when not checked */
+  transform: translate(200%, 0);
+  opacity: 0;
 }
 
 /*
@@ -119,7 +118,7 @@ THEME CHECKBOX
   height: 26px;
   width: 50px;
   margin-right: 0.5rem;
-  transform: scale(1.25);
+  /* transform: scale(1.25); */
 }
 
 .theme-label .ball {
@@ -144,7 +143,8 @@ SYSTEM MESSAGES
 --------------------------------------------------------------
 */
 
-#module-support-warning, #system-message {
+#module-support-warning,
+#system-message {
   display: none;
 }
 
@@ -177,7 +177,7 @@ HEADER AND MAIN
 header {
   background-color: var(--primary-color);
   color: var(--text-color);
-  display: flex; /* Add flex display to center its children */
+  display: flex;
   justify-content: center;
   position: fixed;
   width: 100%;
@@ -186,19 +186,34 @@ header {
 
 #header-content {
   display: flex;
-  width: 1024px;
+  width: 100%;
   align-items: center;
   padding: 10px;
-  max-width: 100%;
   gap: 1rem;
+  height: 37px;
 }
 
 #header-content div:last-of-type {
   margin-left: auto;
 }
 
-#logo {
+#logo-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-content: flex-start;
+}
+
+#logo-container svg {
   height: 40px;
+}
+
+.logo-text {
+  fill: var(--background-color);
+}
+
+.logo-symbol {
+  fill: var(--text-color);
   width: 100px;
 }
 
@@ -238,7 +253,7 @@ nav a:hover {
 }
 
 main {
-  padding-top: 64px;
+  padding-top: 30px;
 }
 
 /*
@@ -249,7 +264,7 @@ ARTICLES
 
 #article-container {
   text-align: left;
-  max-width: 768px;
+  max-width: 1024px;
 }
 
 #article-container h1 {
@@ -339,7 +354,7 @@ ARTICLES
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height:normal;
+  line-height: normal;
   margin-top: 0;
 }
 
@@ -382,7 +397,6 @@ ARTICLES
 #articles-categories {
   display: flex;
   flex-wrap: wrap;
-  margin: 0.5rem;
   justify-content: left; /* Horizontal alignment (main axis) */
   align-items: center;
 }

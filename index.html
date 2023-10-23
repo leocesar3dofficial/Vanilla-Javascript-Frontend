@@ -13,6 +13,30 @@
   <body>
     <header>
       <div id="header-content">
+        <a href="/" id="logo-container" aria-label="logo">
+          <svg class="logo-text">
+            <use href="/img/logo.svg#leocesar"></use>
+          </svg>
+          <svg class="logo-symbol">
+            <use href="/img/logo.svg#3d"></use>
+          </svg>
+        </a>
+        <div>
+          <input
+            type="checkbox"
+            id="theme-toggle"
+            aria-label="theme checkbox"
+          />
+          <label class="theme-label" for="theme-toggle">
+            <svg class="icon">
+              <use href="/icons/sprite-outline.svg#moon"></use>
+            </svg>
+            <svg class="icon">
+              <use href="/icons/sprite-outline.svg#sun"></use>
+            </svg>
+            <div class="ball"></div>
+          </label>
+        </div>
         <nav id="navigation">
           <div id="menu-toggle">
             <input
@@ -39,23 +63,6 @@
             </ul>
           </div>
         </nav>
-        <img src="/img/logo.svg" id="logo" alt="logo" />
-        <div>
-          <input
-            type="checkbox"
-            id="theme-toggle"
-            aria-label="theme checkbox"
-          />
-          <label class="theme-label" for="theme-toggle">
-            <svg class="icon">
-              <use href="/icons/sprite-outline.svg#moon"></use>
-            </svg>
-            <svg class="icon">
-              <use href="/icons/sprite-outline.svg#sun"></use>
-            </svg>
-            <div class="ball"></div>
-          </label>
-        </div>
       </div>
     </header>
     <main>
