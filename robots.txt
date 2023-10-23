@@ -22,8 +22,6 @@ Disallow: /privacy-policy/
 Disallow: /404-error-page/
 Disallow: /error/
 Disallow: /maintenance/
-Disallow: /wp-admin/   # If you're using WordPress
-Disallow: /wp-includes/  # If you're using WordPress
 
 Allow: /images/
 Allow: /scripts/

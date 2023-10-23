@@ -19,18 +19,20 @@ COLORS
 */
 
 :root {
-  --primary-color-light: #2541b2;
-  --secondary-color-light: #4a6fa5;
-  --text-color-light: #04151f;
-  --background-color-light: #ffffff;
+  --primary-color-light: #aa8639;
+  --primary-color-dark: #2f4073;
 
-  --primary-color-dark: #4a6fa5;
-  --secondary-color-dark: #2541b2;
-  --text-color-dark: #ffffff;
-  --background-color-dark: #10192d;
+  --secondary-color-light: #2f4073;
+  --secondary-color-dark: #aa8639;
 
-  --accent-color-light: #c44900;
-  --accent-color-dark: #8a9201;
+  --text-color-light: #072448;
+  --text-color-dark: #faf7f9;
+
+  --background-color-light: #faf7f9;
+  --background-color-dark: #072448;
+
+  --accent-color-light: #246068;
+  --accent-color-dark: #aa6f39;
 
   --error-color: #6b0303;
   --warning-color: rgb(145, 94, 0);
@@ -199,13 +201,13 @@ hr:after {
 
 /* Styling for the links */
 a {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: var(--accent-color);
+  color: var(--primary-color);
 }
 
 /* Basic styling for lists */
@@ -250,14 +252,14 @@ input[type="text"] {
   background-color: var(--secondary-color);
   border-radius: 0.25rem;
   padding: 0.25rem 0.5rem;
-  color: var(--text-color-dark);
+  color: var(--background-color);
   border: none;
   outline: none;
   margin: 0.25rem 0;
 }
 
 input[type="text"]::placeholder {
-  color: var(--text-color-dark);
+  color: var(--background-color);
   font-style: italic;
 }
 
@@ -283,7 +285,7 @@ input[type="text"]::placeholder {
 }
 
 pre {
-  background-color: var(--primary-color);
+  background-color: var(--accent-color);
   color: var(--background-color);
   border-radius: 0.25rem;
   padding: 1rem 1rem;
@@ -306,10 +308,10 @@ SCROLLBAR
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 0.25rem;
-  background-color: var(--accent-color);
+  background-color: var(--secondary-color);
 }
