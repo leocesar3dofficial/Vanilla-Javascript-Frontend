@@ -285,15 +285,13 @@ input[type="text"]::placeholder {
 }
 
 pre {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  padding: 1rem 1rem;
   background-color: var(--accent-color);
   color: var(--background-color);
   border-radius: 0.25rem;
-  padding: 1rem 1rem;
-  font-weight: 700;
-  max-width: 100%;
-  min-width: 50%;
-  overflow-x: auto;
-  display: block;
 }
 
 /*
