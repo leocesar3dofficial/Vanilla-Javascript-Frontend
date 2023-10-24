@@ -247,7 +247,9 @@ nav a:hover {
 }
 
 .page-container {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
@@ -295,12 +297,12 @@ ARTICLES
 }
 
 #articles-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center; /* Horizontal alignment (main axis) */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-gap: 1rem;
+  max-width: 90%;
+  justify-items: center;
   align-items: center;
-  width: 100%;
 }
 
 #articles-container h2 {
@@ -309,11 +311,11 @@ ARTICLES
 }
 
 .article-card {
-  width: 330px;
   height: 370px;
   border-radius: 0.5rem;
-  overflow: hidden;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+  border: 1px solid var(--secondary-color);
 }
 
 .article-card:hover {
@@ -350,7 +352,7 @@ ARTICLES
   font-size: 1.5rem;
   font-weight: 700;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Number of lines to show */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -384,7 +386,7 @@ ARTICLES
 .article-card p {
   margin: 0.5rem 0;
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* Number of lines to show */
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
