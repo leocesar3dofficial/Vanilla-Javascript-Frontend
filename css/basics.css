@@ -19,23 +19,22 @@ COLORS
 */
 
 :root {
-  --primary-color-light: #c08c1b;
-  --secondary-color-dark: var(--primary-color-light);
-
-  --secondary-color-light: #234cc6;
-  --primary-color-dark: var(--secondary-color-light);
-
+  --primary-color-light: #8e3737;
+  --secondary-color-light: #bab138;
   --background-color-light: #faf7f9;
-  --text-color-dark: var(--background-color-light);
+  --text-color-light: #111d2b;
 
-  --text-color-light: #072448;
-  --background-color-dark: var(--text-color-light);
-
-  --accent-color-light: #246068;
+  --accent-color-light: #244c68;
   --accent-color-dark: #b15524;
 
   --error-color: #6b0303;
   --warning-color: rgb(145, 94, 0);
+  --success-color: rgb(19, 102, 15);
+
+  --primary-color-dark: var(--secondary-color-light);
+  --secondary-color-dark: var(--primary-color-light);
+  --background-color-dark: var(--text-color-light);
+  --text-color-dark: var(--background-color-light);
 }
 
 html {
@@ -288,7 +287,7 @@ pre {
   display: block;
   overflow-x: auto;
   padding: 1rem 1rem;
-  background-color: var(--secondary-color);
+  background-color: var(--accent-color);
   color: var(--background-color);
   border-radius: 0.25rem;
 }
