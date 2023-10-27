@@ -1,0 +1,56 @@
+[
+  {
+    "filename": "metodologias-de-indicadores.html",
+    "title": "Metodologias de Indicadores",
+    "category": "Governança",
+    "description": "A capacidade de estabelecer metas claras, acompanhar o desempenho e alinhar os esforços de TI com a estratégia organizacional é essencial para alcança",
+    "slug": "metodologias-de-indicadores",
+    "image": "/img/indicadores-desempenho.webp",
+    "dateModified": "2023-10-23T02:08:10.024Z"
+  },
+  {
+    "filename": "metodos-avaliacao-usabilidade.html",
+    "title": "Engenharia de Usabilidade: Métodos para Avaliação",
+    "category": "Usabilidade",
+    "description": "Garantir que um produto seja fácil de usar e atenda às necessidades do usuário é fundamental para o sucesso no mercado. Para alcançar esse objetivo, e",
+    "slug": "engenharia-de-usabilidade-metodos-para-avaliacao",
+    "image": "/img/user-experience-1.webp",
+    "dateModified": "2023-10-23T02:08:10.024Z"
+  },
+  {
+    "filename": "cobit2009.html",
+    "title": "Framework COBIT 2019",
+    "category": "Governança",
+    "description": "O COBIT 2019 (Control Objectives for Information and Related Technologies) é um framework amplamente utilizado na governança e gestão de Tecnologia da",
+    "slug": "framework-cobit-2019",
+    "image": "/img/cobit2019.webp",
+    "dateModified": "2023-10-23T02:08:10.016Z"
+  },
+  {
+    "filename": "design-de-user-interface-ui.html",
+    "title": "Engenharia de Usabilidade: Design de User Interface (UI)",
+    "category": "Usabilidade",
+    "description": "Uma UI bem projetada é aquela que oferece uma experiência intuitiva, esteticamente agradável e funcional para os usuários. Para atingir esse objetivo,",
+    "slug": "engenharia-de-usabilidade-design-de-user-interface-ui",
+    "image": "/img/user-experience-3.webp",
+    "dateModified": "2023-10-23T02:08:10.016Z"
+  },
+  {
+    "filename": "algoritmos-introducao.html",
+    "title": "Algoritmos: Conceito, Objetivos e Complexidade",
+    "category": "Algoritmos",
+    "description": "Eles são a espinha dorsal de qualquer software ou sistema computacional, permitindo que instruções sejam executadas de maneira sistemática e eficiente",
+    "slug": "algoritmos-conceito-objetivos-e-complexidade",
+    "image": "/img/algoritmos-introducao.webp",
+    "dateModified": "2023-10-23T02:08:10.012Z"
+  },
+  {
+    "filename": "algoritmos-de-ordenacao.html",
+    "title": "Algoritmos de Ordenação: Entendendo e Comparando",
+    "category": "Algoritmos",
+    "description": "Eles permitem que os programadores organizem conjuntos de dados de uma maneira específica, tornando-os mais acessíveis e úteis para as aplicações. Nes",
+    "slug": "algoritmos-de-ordenacao-entendendo-e-comparando",
+    "image": "/img/algoritmos-ordenacao.webp",
+    "dateModified": "2023-10-23T02:08:09.992Z"
+  }
+]

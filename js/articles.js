@@ -1,11 +1,35 @@
 import Pagination from './pagination.js';
 
-let articlesList = [];
-let articlesCategories = [];
+const subjects = [
+  {
+    name: 'arte',
+    path: '/lists/arts.json',
+    articles: [],
+    categories: [],
+  },
+  {
+    name: 'tecnologia',
+    path: '/lists/tech.json',
+    articles: [],
+    categories: [],
+  },
+];
+
+let currentSubject = 0;
 let filteredArticles = [];
 
 const itemsPerPage = 3;
 let currentPage = 1;
+
+(() => {
+  const subjectsUnorderedList = document.getElementById('subjects');
+  subjects.forEach((item) => {
+    subjectsUnorderedList.innerHTML += `
+      <li>
+        <a href="/artigos?assunto=${subjects.indexOf(item)}">${item.name}</a>
+      </li>`;
+  });
+})();
 
 function displayMessage(elementId, text) {
   const systemMessage = document.getElementById(elementId);
@@ -22,14 +46,14 @@ function setCard(article) {
   const formattedDate = dateModified.toLocaleDateString('pt-BR', options);
   const htmlSnippet = `
     <div class="article-card">
-      <a href="/artigo/${article.slug}">
+      <a href="/artigo?assunto=${currentSubject}&titulo=${article.slug}">
        <img src="${article.image}" alt="foto do artigo"/>
       </a>
       <div class="card-content">
-        <a href="/artigo/${article.slug}">
+        <a href="/artigo?assunto=${currentSubject}&titulo=${article.slug}">
          <h2>${article.title}</h2>
         </a>
-        <a href="/artigos?categoria=${articlesCategories.indexOf(article.category)}">
+        <a href="/artigos?assunto=${currentSubject}&categoria=${subjects[currentSubject].categories.indexOf(article.category)}">
          <h3>${article.category}</h3>
         </a>
         <p>${article.description}</p>
@@ -41,9 +65,9 @@ function setCard(article) {
   return htmlSnippet;
 }
 
-const getArticlesList = async () => {
+const getArticlesList = async (subjectIndex) => {
   try {
-    const response = await fetch('../articles.json');
+    const response = await fetch(subjects[subjectIndex].path);
 
     if (!response.ok) {
       throw new Error(`Network response was not ok: ${response.status}`);
@@ -70,21 +94,25 @@ function extractUniqueCategories(jsonData) {
   return categories;
 }
 
-const loadArticles = async () => {
+const loadArticles = async (subjectIndex) => {
   try {
-    articlesList = await getArticlesList();
-    articlesCategories = extractUniqueCategories(articlesList);
+    subjects[subjectIndex].articles = await getArticlesList(subjectIndex);
+    subjects[subjectIndex].categories = extractUniqueCategories(subjects[subjectIndex].articles);
   } catch (error) {
     displayMessage('system-message', `Error: ${error}`);
   }
 };
 
-async function getArticle(articlePath) {
-  if (articlesList.length === 0) {
-    await loadArticles();
+async function getArticle(subjectIndex, articlePath) {
+  if (typeof subjects[subjectIndex] === 'undefined') {
+    return null;
   }
 
-  const articleObject = articlesList.find(
+  if (subjects[subjectIndex].articles.length === 0) {
+    await loadArticles(subjectIndex);
+  }
+
+  const articleObject = subjects[subjectIndex].articles.find(
     (article) => article.slug === articlePath,
   );
 
@@ -112,13 +140,13 @@ async function getArticle(articlePath) {
 }
 
 function filterByCategory(categoryIndex) {
-  const category = articlesCategories[categoryIndex];
+  const category = subjects[currentSubject].categories[categoryIndex];
 
   if (typeof category === 'undefined') {
     return null;
   }
 
-  const articlesInCategory = articlesList.filter(
+  const articlesInCategory = subjects[currentSubject].articles.filter(
     (article) => article.category === category,
   );
 
@@ -134,6 +162,7 @@ function renderCards(list) {
     articlesContainer.innerHTML += setCard(article);
   }
 }
+
 const onPageChange = (page) => {
   window.scrollTo({
     top: 0,
@@ -156,7 +185,7 @@ function paginate(articlesLength) {
 function searchArticles(searchInput) {
   const foundArticles = [];
 
-  articlesList.forEach((article) => {
+  subjects[currentSubject].articles.forEach((article) => {
     const title = article.title.toLowerCase();
     const description = article.description.toLowerCase();
 
@@ -191,20 +220,22 @@ function renderCategoriesList() {
     'articles-categories',
   );
 
-  addLink(categoryFilterContainer, '/artigos', 'Todos');
+  addLink(categoryFilterContainer, `/artigos?assunto=${currentSubject}`, 'Todos');
 
-  articlesCategories.forEach((category) => {
+  subjects[currentSubject].categories.forEach((category) => {
     addLink(
       categoryFilterContainer,
-      `/artigos?categoria=${articlesCategories.indexOf(category)}`,
+      `/artigos?assunto=${currentSubject}&categoria=${subjects[currentSubject].categories.indexOf(category)}`,
       category,
     );
   });
 }
 
-async function renderArticlesList(categoryIndex) {
-  if (articlesList.length === 0) {
-    await loadArticles();
+async function renderArticlesList(subjectIndex, categoryIndex) {
+  currentSubject = subjectIndex;
+
+  if (subjects[currentSubject].articles.length === 0) {
+    await loadArticles(subjectIndex);
   }
 
   let articlesLength = 0;
@@ -216,14 +247,14 @@ async function renderArticlesList(categoryIndex) {
   });
 
   if (Number.isNaN(categoryIndex)) {
-    filteredArticles = articlesList;
-    articlesLength = articlesList.length;
+    filteredArticles = subjects[currentSubject].articles;
+    articlesLength = subjects[currentSubject].articles.length;
   } else {
     filteredArticles = filterByCategory(categoryIndex);
 
     if (filteredArticles === null) {
-      filteredArticles = articlesList;
-      articlesLength = articlesList.length;
+      filteredArticles = subjects[currentSubject].articles;
+      articlesLength = subjects[currentSubject].articles.length;
     } else {
       articlesLength = filteredArticles.length;
     }

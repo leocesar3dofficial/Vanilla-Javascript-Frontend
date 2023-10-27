@@ -82,12 +82,9 @@ HAMBURGER MENU
 #menu li {
   text-align: right;
   margin: 1rem 0.5rem 0 0;
-  /* margin-top: 1rem;
-  margin-right: 0.5rem; */
 }
 
 #menu-toggle input:checked ~ ul {
-  /* transform: none; */
   opacity: 1;
 }
 
@@ -230,7 +227,8 @@ nav {
   margin-top: 10px;
 }
 
-nav a {
+nav a,
+h2 {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--background-color);
