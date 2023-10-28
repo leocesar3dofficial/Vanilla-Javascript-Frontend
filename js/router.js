@@ -27,7 +27,12 @@ function performAction(path) {
         10,
       );
 
-      renderArticlesList(subjectParam, categoryParam);
+      renderArticlesList(subjectParam, categoryParam).then((articles) => {
+        if (articles === null) {
+          render404Template();
+        }
+      });
+
       break;
     }
     case routes['/artigo']: {

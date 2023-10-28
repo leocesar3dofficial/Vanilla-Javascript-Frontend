@@ -2,13 +2,13 @@ import Pagination from './pagination.js';
 
 const subjects = [
   {
-    name: 'arte',
+    name: 'Arte',
     path: '/lists/arts.json',
     articles: [],
     categories: [],
   },
   {
-    name: 'tecnologia',
+    name: 'Tecnologia',
     path: '/lists/tech.json',
     articles: [],
     categories: [],
@@ -232,6 +232,10 @@ function renderCategoriesList() {
 }
 
 async function renderArticlesList(subjectIndex, categoryIndex) {
+  if (subjects[subjectIndex] === undefined) {
+    return null;
+  }
+
   currentSubject = subjectIndex;
 
   if (subjects[currentSubject].articles.length === 0) {
@@ -263,6 +267,7 @@ async function renderArticlesList(subjectIndex, categoryIndex) {
   renderCategoriesList();
   renderCards(filteredArticles.slice(0, itemsPerPage));
   paginate(articlesLength);
+  return filteredArticles;
 }
 
 export {
