@@ -376,7 +376,7 @@ ARTICLES
   margin-top: 0;
 }
 
-#article-container h3,
+#article-container h3:first-of-type,
 .article-card h3 {
   background-color: var(--accent-color);
   color: var(--background-color);
