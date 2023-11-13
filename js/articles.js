@@ -47,7 +47,7 @@ function setCard(article) {
   const htmlSnippet = `
     <div class="article-card">
       <a href="/artigo?assunto=${currentSubject}&titulo=${article.slug}">
-       <img src="${article.image}" alt="foto do artigo"/>
+       <img src="${article.image}" alt="foto do artigo" loading="lazy"/>
       </a>
       <div class="card-content">
         <a href="/artigo?assunto=${currentSubject}&titulo=${article.slug}">
