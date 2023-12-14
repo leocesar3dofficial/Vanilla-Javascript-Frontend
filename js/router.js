@@ -4,8 +4,29 @@ import {
   getArticle,
 } from './articles.js';
 
+const loadedCustomFiles = [];
+const { head } = document;
 const content = document.getElementById('content');
 const pageDescription = document.querySelector('meta[name="description"]');
+
+function loadCustomCSS(filename) {
+  if (loadedCustomFiles.indexOf(filename) !== -1) return;
+  const style = document.createElement('link');
+  style.href = filename;
+  style.type = 'text/css';
+  style.rel = 'stylesheet';
+  head.append(style);
+  loadedCustomFiles.push(filename);
+}
+
+function loadCustomScript(filename) {
+  if (loadedCustomFiles.indexOf(filename) !== -1) return;
+  const script = document.createElement('script');
+  script.src = filename;
+  script.type = 'text/javascript';
+  head.append(script);
+  loadedCustomFiles.push(filename);
+}
 
 async function render404Template() {
   const html = await fetch(routes[404].template).then((data) => data.text());
@@ -16,6 +37,20 @@ async function render404Template() {
 
 function performAction(path) {
   switch (path) {
+    case routes['/']: {
+      const actionElementsDiv = document.getElementById('lower');
+      const buttons = actionElementsDiv.querySelectorAll('button');
+
+      buttons[0].addEventListener('click', () => {
+        loadCustomCSS('/css/custom/test.css');
+      });
+
+      buttons[1].addEventListener('click', () => {
+        loadCustomScript('/js/custom/test.js');
+      });
+
+      break;
+    }
     case routes['/artigos']: {
       const categoryParam = parseInt(
         new URLSearchParams(window.location.search).get('categoria'),
