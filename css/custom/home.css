@@ -1,0 +1,46 @@
+#hero {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 5%;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+}
+
+#hero img {
+  width: 50%;
+}
+
+#tagline {
+  text-align: left;
+  width: 50%;
+  height: 100%;
+}
+
+#tagline h1 {
+  font-size: 3rem;
+  line-height: normal;
+}
+
+/*
+--------------------------------------------------------------
+RESPONSIVE
+--------------------------------------------------------------
+*/
+
+@media screen and (max-width: 768px) {
+  #hero {
+    flex-direction: column-reverse;
+    width: auto;
+  }
+
+  #tagline {
+    width: 100%;
+  }
+
+  #hero img {
+    width: 100%;
+  }
+}

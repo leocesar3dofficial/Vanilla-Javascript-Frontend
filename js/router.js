@@ -40,6 +40,7 @@ function performAction(path) {
     case routes['/']: {
       const actionElementsDiv = document.getElementById('lower');
       const buttons = actionElementsDiv.querySelectorAll('button');
+      loadCustomCSS('/css/custom/home.css');
 
       buttons[0].addEventListener('click', () => {
         loadCustomCSS('/css/custom/test.css');
@@ -52,6 +53,8 @@ function performAction(path) {
       break;
     }
     case routes['/artigos']: {
+      loadCustomCSS('/css/custom/articles.css');
+
       const categoryParam = parseInt(
         new URLSearchParams(window.location.search).get('categoria'),
         10,
@@ -71,6 +74,8 @@ function performAction(path) {
       break;
     }
     case routes['/artigo']: {
+      loadCustomCSS('/css/custom/article.css');
+
       const subjectParam = parseInt(
         new URLSearchParams(window.location.search).get('assunto'),
         10,

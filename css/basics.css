@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   src: url(/fonts/OpenSans-Regular.ttf);
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   src: url(/fonts/Roboto-Bold.ttf);
   font-display: swap;
 }
@@ -41,7 +41,7 @@ html {
   color-scheme: light dark;
 }
 
-body[data-theme="light"] {
+body[data-theme='light'] {
   --primary-color: var(--primary-color-light);
   --secondary-color: var(--secondary-color-light);
   --accent-color: var(--accent-color-light);
@@ -50,7 +50,7 @@ body[data-theme="light"] {
   --icon-fill: var(--primary-color-light);
 }
 
-body[data-theme="dark"] {
+body[data-theme='dark'] {
   --primary-color: var(--primary-color-dark);
   --secondary-color: var(--secondary-color-dark);
   --accent-color: var(--accent-color-dark);
@@ -90,7 +90,7 @@ BASICS
 body {
   height: 100%;
   text-align: left;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -100,7 +100,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin-top: 0.5rem;
 }
 
@@ -174,7 +174,7 @@ button:disabled:hover svg {
 
 p {
   font-size: 1rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 /* Styling for the <hr> tag */
@@ -191,7 +191,7 @@ hr {
 
 hr:after {
   background: var(--background-color);
-  content: "☕ LEOCESAR3D 🚀";
+  content: '☕ LEOCESAR3D 🚀';
   padding: 0 4px;
   position: relative;
   top: -0.85rem;
@@ -247,7 +247,7 @@ ol ul li {
   fill: var(--icon-fill);
 }
 
-input[type="text"] {
+input[type='text'] {
   background-color: var(--secondary-color);
   border-radius: 0.25rem;
   padding: 0.25rem 0.5rem;
@@ -257,7 +257,7 @@ input[type="text"] {
   margin: 0.25rem 0;
 }
 
-input[type="text"]::placeholder {
+input[type='text']::placeholder {
   color: var(--background-color);
   font-style: italic;
 }

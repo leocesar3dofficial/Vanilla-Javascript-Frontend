@@ -2,7 +2,7 @@ const urlPageTitle = 'Leocesar3D';
 
 const routes = {
   '/': {
-    template: '/templates/index.html',
+    template: '/templates/home.html',
     title: `Home | ${urlPageTitle}`,
     description: 'Página Inicial',
   },
