@@ -10,7 +10,7 @@
   width: fit-content;
   text-align: center;
   margin: auto;
-  line-height: normal;
+  line-height: 1;
 }
 
 #article-container img {

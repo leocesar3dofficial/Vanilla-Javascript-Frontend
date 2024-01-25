@@ -5,8 +5,8 @@
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url(/fonts/Roboto-Bold.ttf);
+  font-family: 'Alte Haas Grotesk';
+  src: url(/fonts/AlteHaasGroteskBold.ttf);
   font-display: swap;
 }
 
@@ -19,8 +19,8 @@ COLORS
 */
 
 :root {
-  --primary-color-light: #8e3737;
-  --secondary-color-light: #bab138;
+  --primary-color-light: #091426;
+  --secondary-color-light: #f9c325;
   --background-color-light: #faf7f9;
   --text-color-light: #111d2b;
 
@@ -100,7 +100,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Alte Haas Grotesk', sans-serif;
   margin-top: 0.5rem;
 }
 
@@ -200,7 +200,7 @@ hr:after {
 
 /* Styling for the links */
 a {
-  color: var(--secondary-color);
+  color: var(--accent-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
