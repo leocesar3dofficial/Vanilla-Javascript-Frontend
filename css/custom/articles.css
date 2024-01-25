@@ -17,13 +17,12 @@
   border-radius: 0.5rem;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   overflow: hidden;
-  border: 1px solid var(--secondary-color);
+  /* border: 1px solid var(--secondary-color); */
 }
 
 .article-card:hover {
-  box-shadow: var(--secondary-color) 0px 4px 8px -2px,
-    var(--primary-color) 0px 0px 0px 1px;
-  transform: translateY(-5px) scale(1.05);
+  box-shadow: var(--primary-color) 0px 0px 8px -2px;
+  transform: translateY(-2px) scale(1.02);
 }
 
 .article-card img {
@@ -58,6 +57,13 @@
 }
 
 .article-card a h3 {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  border-radius: 0.25rem;
+  width: fit-content;
+  padding: 0.25rem 0.5rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
   transition: background-color 0.5s ease;
 }
 
