@@ -10,7 +10,7 @@ HAMBURGER MENU
   display: block;
   position: relative;
   z-index: 1;
-  transform: translateY(-2px);
+  transform: translateY(-6px);
 }
 
 #menu-toggle input {
