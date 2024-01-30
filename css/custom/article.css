@@ -54,7 +54,7 @@ RESPONSIVE
 --------------------------------------------------------------
 */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
   #article-container {
     width: 100vw;
   }

@@ -21,15 +21,15 @@ let filteredArticles = [];
 const itemsPerPage = 3;
 let currentPage = 1;
 
-(() => {
-  const subjectsUnorderedList = document.getElementById('subjects');
-  subjects.forEach((item) => {
-    subjectsUnorderedList.innerHTML += `
-      <li>
-        <a href="/artigos?assunto=${subjects.indexOf(item)}">${item.name}</a>
-      </li>`;
-  });
-})();
+// (() => {
+//   const subjectsUnorderedList = document.getElementById('subjects');
+//   subjects.forEach((item) => {
+//     subjectsUnorderedList.innerHTML += `
+//       <li>
+//         <a href="/artigos?assunto=${subjects.indexOf(item)}">${item.name}</a>
+//       </li>`;
+//   });
+// })();
 
 function displayMessage(elementId, text) {
   const systemMessage = document.getElementById(elementId);
