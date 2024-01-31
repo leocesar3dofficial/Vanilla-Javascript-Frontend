@@ -16,12 +16,12 @@ const routes = {
     title: `Entre em contato | ${urlPageTitle}`,
     description: 'Entre em contato',
   },
-  '/artigos': {
+  '/articles': {
     template: '/templates/articles.html',
     title: `Artigos | ${urlPageTitle}`,
     description: 'Artigos',
   },
-  '/artigo': {
+  '/article': {
     template: '/templates/article.html',
     title: `Artigo | ${urlPageTitle}`,
     description: 'Artigo',

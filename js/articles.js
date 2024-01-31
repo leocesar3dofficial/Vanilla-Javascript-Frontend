@@ -3,12 +3,14 @@ import Pagination from './pagination.js';
 const subjects = [
   {
     name: 'Arte',
+    slug: 'arte',
     path: '/lists/arts.json',
     articles: [],
     categories: [],
   },
   {
     name: 'Tecnologia',
+    slug: 'tecnologia',
     path: '/lists/tech.json',
     articles: [],
     categories: [],
@@ -26,10 +28,14 @@ let currentPage = 1;
 //   subjects.forEach((item) => {
 //     subjectsUnorderedList.innerHTML += `
 //       <li>
-//         <a href="/artigos?assunto=${subjects.indexOf(item)}">${item.name}</a>
+//         <a href="/articles?assunto=${subjects.indexOf(item)}">${item.name}</a>
 //       </li>`;
 //   });
 // })();
+
+function findSubjectIndexBySlug(slug) {
+  return subjects.findIndex((subject) => subject.slug === slug);
+}
 
 function displayMessage(elementId, text) {
   const systemMessage = document.getElementById(elementId);
@@ -46,14 +52,14 @@ function setCard(article) {
   const formattedDate = dateModified.toLocaleDateString('pt-BR', options);
   const htmlSnippet = `
     <div class="article-card">
-      <a href="/artigo?assunto=${currentSubject}&titulo=${article.slug}">
+      <a href="/article/${subjects[currentSubject].slug}/${article.slug}">
        <img src="${article.image}" alt="foto do artigo" loading="lazy"/>
       </a>
       <div class="card-content">
-        <a href="/artigo?assunto=${currentSubject}&titulo=${article.slug}">
+        <a href="/article/${subjects[currentSubject].slug}/${article.slug}">
          <h2>${article.title}</h2>
         </a>
-        <a href="/artigos?assunto=${currentSubject}&categoria=${subjects[currentSubject].categories.indexOf(article.category)}">
+        <a href="/articles/${subjects[currentSubject].slug}/${subjects[currentSubject].categories.indexOf(article.category)}">
          <h3>${article.category}</h3>
         </a>
         <p>${article.description}</p>
@@ -103,8 +109,10 @@ const loadArticles = async (subjectIndex) => {
   }
 };
 
-async function getArticle(subjectIndex, articlePath) {
-  if (typeof subjects[subjectIndex] === 'undefined') {
+async function getArticle(subjectSlug, articleSlug) {
+  const subjectIndex = findSubjectIndexBySlug(subjectSlug);
+
+  if (subjectIndex === -1) {
     return null;
   }
 
@@ -113,17 +121,17 @@ async function getArticle(subjectIndex, articlePath) {
   }
 
   const articleObject = subjects[subjectIndex].articles.find(
-    (article) => article.slug === articlePath,
+    (article) => article.slug === articleSlug,
   );
 
   if (typeof articleObject === 'undefined') {
     return null;
   }
 
-  const articleURL = `../articles/${articleObject.filename}`;
+  const articleFileLocation = `/articles/${articleObject.filename}`;
 
   try {
-    const response = await fetch(articleURL);
+    const response = await fetch(articleFileLocation);
 
     if (!response.ok) {
       throw new Error(`Network response was not ok: ${response.status}`);
@@ -220,26 +228,28 @@ function renderCategoriesList() {
     'articles-categories',
   );
 
-  addLink(categoryFilterContainer, `/artigos?assunto=${currentSubject}`, 'Todos');
+  addLink(categoryFilterContainer, `/articles/${subjects[currentSubject].slug}`, 'Todos');
 
   subjects[currentSubject].categories.forEach((category) => {
     addLink(
       categoryFilterContainer,
-      `/artigos?assunto=${currentSubject}&categoria=${subjects[currentSubject].categories.indexOf(category)}`,
+      `/articles/${subjects[currentSubject].slug}/${subjects[currentSubject].categories.indexOf(category)}`,
       category,
     );
   });
 }
 
-async function renderArticlesList(subjectIndex, categoryIndex) {
-  if (subjects[subjectIndex] === undefined) {
+async function renderArticlesList(subjectSlug, categoryIndex) {
+  const subjectIndex = findSubjectIndexBySlug(subjectSlug);
+
+  if (subjectIndex === -1) {
     return null;
   }
 
   currentSubject = subjectIndex;
 
   if (subjects[currentSubject].articles.length === 0) {
-    await loadArticles(subjectIndex);
+    await loadArticles(currentSubject);
   }
 
   let articlesLength = 0;
@@ -271,7 +281,6 @@ async function renderArticlesList(subjectIndex, categoryIndex) {
 }
 
 export {
-  getArticlesList,
   getArticle,
   renderArticlesList,
 };

@@ -31,7 +31,7 @@
 
 #article-container h3:first-of-type,
 .article-card h3 {
-  background-color: var(--accent-color);
+  background-color: var(--primary-color);
   color: var(--background-color);
   border-radius: 0.25rem;
   width: fit-content;

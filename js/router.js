@@ -40,6 +40,7 @@ function performAction(path) {
     case routes['/']: {
       const actionElementsDiv = document.getElementById('lower');
       const buttons = actionElementsDiv.querySelectorAll('button');
+
       loadCustomCSS('/css/custom/home.css');
 
       buttons[0].addEventListener('click', () => {
@@ -52,20 +53,14 @@ function performAction(path) {
 
       break;
     }
-    case routes['/artigos']: {
+    case routes['/articles']: {
       loadCustomCSS('/css/custom/articles.css');
 
-      const categoryParam = parseInt(
-        new URLSearchParams(window.location.search).get('categoria'),
-        10,
-      );
+      const urlSegments = window.location.pathname.split('/');
+      const subjectSlug = urlSegments[2];
+      const categoryIndex = parseInt(urlSegments[3], 10);
 
-      const subjectParam = parseInt(
-        new URLSearchParams(window.location.search).get('assunto'),
-        10,
-      );
-
-      renderArticlesList(subjectParam, categoryParam).then((articles) => {
+      renderArticlesList(subjectSlug, categoryIndex).then((articles) => {
         if (articles === null) {
           render404Template();
         }
@@ -73,17 +68,14 @@ function performAction(path) {
 
       break;
     }
-    case routes['/artigo']: {
+    case routes['/article']: {
       loadCustomCSS('/css/custom/article.css');
 
-      const subjectParam = parseInt(
-        new URLSearchParams(window.location.search).get('assunto'),
-        10,
-      );
+      const urlSegments = window.location.pathname.split('/');
+      const subjectSlug = urlSegments[2];
+      const articleSlug = urlSegments[3];
 
-      const articleTitle = new URLSearchParams(window.location.search).get('titulo');
-
-      getArticle(subjectParam, articleTitle).then((article) => {
+      getArticle(subjectSlug, articleSlug).then((article) => {
         if (article === null) {
           render404Template();
         }
