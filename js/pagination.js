@@ -32,11 +32,27 @@ class Pagination {
   }
 
   createElements() {
-    this.firstPageButton = this.createButton('<svg class="icon"><use href="/icons/sprite-outline.svg#firstPage"></use></svg>', 'Primeira', () => this.goToPage(1));
-    this.previousPageButton = this.createButton('<svg class="icon"><use href="/icons/sprite-outline.svg#previousPage"></use></svg>', 'Anterior', () => this.goToPage(this.currentPage - 1));
+    this.firstPageButton = this.createButton(
+      '<svg width="0" class="icon"><use href="/icons/sprite-outline.svg#firstPage"></use></svg>',
+      'Primeira',
+      () => this.goToPage(1)
+    );
+    this.previousPageButton = this.createButton(
+      '<svg width="0" class="icon"><use href="/icons/sprite-outline.svg#previousPage"></use></svg>',
+      'Anterior',
+      () => this.goToPage(this.currentPage - 1)
+    );
     this.currentPageIndicator = document.createElement('span');
-    this.nextPageButton = this.createButton('<svg class="icon"><use href="/icons/sprite-outline.svg#nextPage"></use></svg>', 'Próxima', () => this.goToPage(this.currentPage + 1));
-    this.lastPageButton = this.createButton('<svg class="icon"><use href="/icons/sprite-outline.svg#lastPage"></use></svg>', 'Última', () => this.goToPage(this.totalPages));
+    this.nextPageButton = this.createButton(
+      '<svg width="0" class="icon"><use href="/icons/sprite-outline.svg#nextPage"></use></svg>',
+      'Próxima',
+      () => this.goToPage(this.currentPage + 1)
+    );
+    this.lastPageButton = this.createButton(
+      '<svg width="0" class="icon"><use href="/icons/sprite-outline.svg#lastPage"></use></svg>',
+      'Última',
+      () => this.goToPage(this.totalPages)
+    );
 
     this.containerElement.innerHTML = '';
     this.containerElement.appendChild(this.firstPageButton);
