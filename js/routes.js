@@ -2,32 +2,32 @@ const urlPageTitle = 'Leocesar3D';
 
 const routes = {
   '/': {
-    template: 'templates/home.html',
+    template: '/templates/home.html',
     title: `Home | ${urlPageTitle}`,
     description: 'Página Inicial',
   },
   '/sobre': {
-    template: 'templates/about.html',
+    template: '/templates/about.html',
     title: `Sobre | ${urlPageTitle}`,
     description: 'Sobre nós',
   },
   '/contato': {
-    template: 'templates/contact.html',
+    template: '/templates/contact.html',
     title: `Entre em contato | ${urlPageTitle}`,
     description: 'Entre em contato',
   },
   '/articles': {
-    template: 'templates/articles.html',
+    template: '/templates/articles.html',
     title: `Artigos | ${urlPageTitle}`,
     description: 'Artigos',
   },
   '/article': {
-    template: 'templates/article.html',
+    template: '/templates/article.html',
     title: `Artigo | ${urlPageTitle}`,
     description: 'Artigo',
   },
   404: {
-    template: 'templates/404.html',
+    template: '/templates/404.html',
     title: `404 | ${urlPageTitle}`,
     description: 'Página não encontrada',
   },
