@@ -1,20 +1,20 @@
 @font-face {
   font-family: 'Open Sans';
-  src: url(/fonts/OpenSans-Regular.ttf);
+  src: url(./fonts/OpenSans-Regular.ttf);
   font-display: swap;
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Open Sans';
-  src: url(/fonts/OpenSans-Bold.ttf);
+  src: url(./fonts/OpenSans-Bold.ttf);
   font-display: swap;
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'Alte Haas Grotesk';
-  src: url(/fonts/AlteHaasGroteskBold.ttf);
+  src: url(./fonts/AlteHaasGroteskBold.ttf);
   font-display: swap;
 }
 
